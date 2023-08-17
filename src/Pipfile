@@ -1,0 +1,15 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+owlready2 = "*"
+pylint = "*"
+doq = "*"
+docstring-generator = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"

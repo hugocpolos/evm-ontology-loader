@@ -1,0 +1,817 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="file://home/hugo.marredo/Documents/personal/tg2/python3/ontologies/tlo.owl#"
+     xml:base="file://home/hugo.marredo/Documents/personal/tg2/python3/ontologies/tlo.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:nep="file://nep"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:tlo="file://tlo#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="file://home/hugo.marredo/Documents/personal/tg2/python3/ontologies/tlo.owl">
+        <rdfs:comment>An example mapping of ERAS-TLO CLIF axioms into OWL axioms using Manchester OWL syntax</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#comment -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- file://tlo#tloaffects -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tloaffects">
+        <rdfs:domain rdf:resource="file://tlo#tloProcess"/>
+        <rdfs:range rdf:resource="file://tlo#tloPhysical"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tlocharacterizes -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tlocharacterizes">
+        <rdfs:domain rdf:resource="file://tlo#tloAbstract"/>
+        <rdfs:range rdf:resource="file://tlo#tloPhysical"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tlocreated_by -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tlocreated_by">
+        <owl:inverseOf rdf:resource="file://tlo#tlocreates"/>
+        <rdfs:domain rdf:resource="file://tlo#tloActionEvent"/>
+        <rdfs:range rdf:resource="file://tlo#tloAgent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tlocreates -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tlocreates">
+        <rdfs:domain rdf:resource="file://tlo#tloAgent"/>
+        <rdfs:range rdf:resource="file://tlo#tloActionEvent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tlodescribedBy -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tlodescribedBy">
+        <rdfs:domain rdf:resource="file://tlo#tloEntity"/>
+        <rdfs:range rdf:resource="file://tlo#tloDescription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tlodescribes -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tlodescribes">
+        <rdfs:domain rdf:resource="file://tlo#tloDescription"/>
+        <rdfs:range rdf:resource="file://tlo#tloEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tloenactedBy -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tloenactedBy">
+        <owl:inverseOf rdf:resource="file://tlo#tloenacts"/>
+        <rdfs:domain rdf:resource="file://tlo#tloRole"/>
+        <rdfs:range rdf:resource="file://tlo#tloAgent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tloenacts -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tloenacts">
+        <rdfs:domain rdf:resource="file://tlo#tloAgent"/>
+        <rdfs:range rdf:resource="file://tlo#tloRole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tloend_time -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tloend_time">
+        <rdfs:domain rdf:resource="file://tlo#tloEvent"/>
+        <rdfs:range rdf:resource="file://tlo#tloTime"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tloformulatedBy -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tloformulatedBy">
+        <owl:inverseOf rdf:resource="file://tlo#tloformulates"/>
+        <rdfs:domain rdf:resource="file://tlo#tloInformationArtifact"/>
+        <rdfs:range rdf:resource="file://tlo#tloAgent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tloformulates -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tloformulates">
+        <rdfs:domain rdf:resource="file://tlo#tloAgent"/>
+        <rdfs:range rdf:resource="file://tlo#tloInformationArtifact"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tlohasMember -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tlohasMember">
+        <owl:inverseOf rdf:resource="file://tlo#tlois_member_of"/>
+        <rdfs:domain rdf:resource="file://tlo#tloCollective"/>
+        <rdfs:range rdf:resource="file://tlo#tloEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tlohasParticipant -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tlohasParticipant">
+        <owl:inverseOf rdf:resource="file://tlo#tloparticipates_in"/>
+        <rdfs:domain rdf:resource="file://tlo#tloProcess"/>
+        <rdfs:range rdf:resource="file://tlo#tloevmObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tloidentified_at -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tloidentified_at">
+        <rdfs:domain rdf:resource="file://tlo#tloPhysical"/>
+        <rdfs:range rdf:resource="file://tlo#tloTime"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tloidentified_by -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tloidentified_by">
+        <rdfs:domain rdf:resource="file://tlo#tloPhysical"/>
+        <rdfs:range rdf:resource="file://tlo#tloProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tloisRealizedBy -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tloisRealizedBy">
+        <owl:inverseOf rdf:resource="file://tlo#tlorealizes"/>
+        <rdfs:domain rdf:resource="file://tlo#tloMethod"/>
+        <rdfs:range rdf:resource="file://tlo#tloProcess"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tlois_member_of -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tlois_member_of">
+        <rdfs:domain rdf:resource="file://tlo#tloEntity"/>
+        <rdfs:range rdf:resource="file://tlo#tloCollective"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tlois_stage_at -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tlois_stage_at">
+        <rdfs:domain rdf:resource="file://tlo#tloProcess"/>
+        <rdfs:range rdf:resource="file://tlo#tloTime"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tlois_stage_of -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tlois_stage_of">
+        <rdfs:domain rdf:resource="file://tlo#tloProcess"/>
+        <rdfs:range rdf:resource="file://tlo#tloProcess"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tlolocated_at -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tlolocated_at">
+        <rdfs:domain rdf:resource="file://tlo#tloPhysical"/>
+        <rdfs:range rdf:resource="file://tlo#tloSpatioTemporalPlace"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tlomanifests -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tlomanifests">
+        <owl:inverseOf rdf:resource="file://tlo#tlooccurs_in"/>
+        <rdfs:domain rdf:resource="file://tlo#tloProcess"/>
+        <rdfs:range rdf:resource="file://tlo#tloEvent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tlooccurs_in -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tlooccurs_in">
+        <rdfs:domain rdf:resource="file://tlo#tloEvent"/>
+        <rdfs:range rdf:resource="file://tlo#tloProcess"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tloparticipates_in -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tloparticipates_in">
+        <rdfs:domain rdf:resource="file://tlo#tloevmObject"/>
+        <rdfs:range rdf:resource="file://tlo#tloProcess"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tloperceived_by -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tloperceived_by">
+        <rdfs:domain rdf:resource="file://tlo#tloEntity"/>
+        <rdfs:range rdf:resource="file://tlo#tloAgent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tlopresent_at -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tlopresent_at">
+        <rdfs:domain rdf:resource="file://tlo#tloPhysical"/>
+        <rdfs:range rdf:resource="file://tlo#tloTime"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tloproperty_of -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tloproperty_of">
+        <rdfs:domain rdf:resource="file://tlo#tloProperty"/>
+        <rdfs:range rdf:resource="file://tlo#tloEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tlorealizes -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tlorealizes">
+        <rdfs:domain rdf:resource="file://tlo#tloProcess"/>
+        <rdfs:range rdf:resource="file://tlo#tloMethod"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tlorenders -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tlorenders">
+        <rdfs:domain rdf:resource="file://tlo#tloInformationArtifact"/>
+        <rdfs:range rdf:resource="file://tlo#tloAbstract"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tloselected_by -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tloselected_by">
+        <rdfs:domain rdf:resource="file://tlo#tloPlan"/>
+        <rdfs:range rdf:resource="file://tlo#tloAgent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tlostart_time -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tlostart_time">
+        <rdfs:domain rdf:resource="file://tlo#tloEvent"/>
+        <rdfs:range rdf:resource="file://tlo#tloTime"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tlotransmits -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tlotransmits">
+        <owl:inverseOf rdf:resource="file://tlo#tlotransmitted_by"/>
+        <rdfs:domain rdf:resource="file://tlo#tloAgentCommunication"/>
+        <rdfs:range rdf:resource="file://tlo#tloInformationArtifact"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tlotransmitted_by -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tlotransmitted_by">
+        <rdfs:domain rdf:resource="file://tlo#tloInformationArtifact"/>
+        <rdfs:range rdf:resource="file://tlo#tloAgentCommunication"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- file://tlo#tloAbstract -->
+
+    <owl:Class rdf:about="file://tlo#tloAbstract">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloEntity"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://tlo#tlocharacterizes"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://tlo#tloPhysical"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="file://tlo#tloPhysical"/>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloActionEvent -->
+
+    <owl:Class rdf:about="file://tlo#tloActionEvent">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloEvent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://tlo#tlocreated_by"/>
+                        <owl:someValuesFrom rdf:resource="file://tlo#tloAgent"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="file://tlo#tloEnvironmentalEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloAgent -->
+
+    <owl:Class rdf:about="file://tlo#tloAgent">
+        <rdfs:subClassOf rdf:resource="file://tlo#tloevmObject"/>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloAgentCommunication -->
+
+    <owl:Class rdf:about="file://tlo#tloAgentCommunication">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloActionEvent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://tlo#tlotransmits"/>
+                        <owl:someValuesFrom rdf:resource="file://tlo#tloInformationArtifact"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloAttribute -->
+
+    <owl:Class rdf:about="file://tlo#tloAttribute">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloProperty"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://tlo#tloproperty_of"/>
+                        <owl:someValuesFrom rdf:resource="file://tlo#tloevmObject"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="file://tlo#tloManner"/>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloCollective -->
+
+    <owl:Class rdf:about="file://tlo#tloCollective">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloAbstract"/>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="file://tlo#tlodescribes"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="file://tlo#tloDescription"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="file://tlo#tlois_member_of"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="file://tlo#tloEntity"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloContinuant -->
+
+    <owl:Class rdf:about="file://tlo#tloContinuant">
+        <rdfs:subClassOf rdf:resource="file://tlo#tloPhysical"/>
+        <owl:disjointWith rdf:resource="file://tlo#tloOccurrent"/>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloDescription -->
+
+    <owl:Class rdf:about="file://tlo#tloDescription">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloAbstract"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://tlo#tlodescribes"/>
+                        <owl:someValuesFrom rdf:resource="file://tlo#tloEntity"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloEntity -->
+
+    <owl:Class rdf:about="file://tlo#tloEntity">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloEnumDataTypes -->
+
+    <owl:Class rdf:about="file://tlo#tloEnumDataTypes">
+        <rdfs:subClassOf rdf:resource="file://tlo#tloDescription"/>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloEnvironmentalEvent -->
+
+    <owl:Class rdf:about="file://tlo#tloEnvironmentalEvent">
+        <rdfs:subClassOf rdf:resource="file://tlo#tloEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloEvent -->
+
+    <owl:Class rdf:about="file://tlo#tloEvent">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloOccurrent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://tlo#tloend_time"/>
+                        <owl:someValuesFrom rdf:resource="file://tlo#tloTime"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://tlo#tlooccurs_in"/>
+                        <owl:someValuesFrom rdf:resource="file://tlo#tloProcess"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://tlo#tlostart_time"/>
+                        <owl:someValuesFrom rdf:resource="file://tlo#tloTime"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloInformationArtifact -->
+
+    <owl:Class rdf:about="file://tlo#tloInformationArtifact">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloevmObject"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://tlo#tloformulatedBy"/>
+                        <owl:someValuesFrom rdf:resource="file://tlo#tloAgent"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloInteractionProcess -->
+
+    <owl:Class rdf:about="file://tlo#tloInteractionProcess">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloProcess"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://tlo#tlohasParticipant"/>
+                        <owl:someValuesFrom rdf:resource="file://tlo#tloAgent"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="file://tlo#tlooccurs_in"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="file://tlo#tloActionEvent"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloManner -->
+
+    <owl:Class rdf:about="file://tlo#tloManner">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloProperty"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://tlo#tloproperty_of"/>
+                        <owl:someValuesFrom rdf:resource="file://tlo#tloProcess"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloMethod -->
+
+    <owl:Class rdf:about="file://tlo#tloMethod">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloDescription"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://tlo#tlodescribes"/>
+                        <owl:someValuesFrom rdf:resource="file://tlo#tloProcess"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://tlo#tloisRealizedBy"/>
+                        <owl:someValuesFrom rdf:resource="file://tlo#tloProcess"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloOccurrent -->
+
+    <owl:Class rdf:about="file://tlo#tloOccurrent">
+        <rdfs:subClassOf rdf:resource="file://tlo#tloPhysical"/>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloPhysical -->
+
+    <owl:Class rdf:about="file://tlo#tloPhysical">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloEntity"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://tlo#tlolocated_at"/>
+                        <owl:someValuesFrom rdf:resource="file://tlo#tloSpatioTemporalPlace"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://tlo#tlopresent_at"/>
+                        <owl:someValuesFrom rdf:resource="file://tlo#tloTime"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloPlan -->
+
+    <owl:Class rdf:about="file://tlo#tloPlan">
+        <rdfs:subClassOf rdf:resource="file://tlo#tloMethod"/>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloProcess -->
+
+    <owl:Class rdf:about="file://tlo#tloProcess">
+        <rdfs:subClassOf rdf:resource="file://tlo#tloOccurrent"/>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloProperty -->
+
+    <owl:Class rdf:about="file://tlo#tloProperty">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloAbstract"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://tlo#tloproperty_of"/>
+                        <owl:someValuesFrom rdf:resource="file://tlo#tloEntity"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloRole -->
+
+    <owl:Class rdf:about="file://tlo#tloRole">
+        <rdfs:subClassOf rdf:resource="file://tlo#tloOccurrent"/>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloSchema -->
+
+    <owl:Class rdf:about="file://tlo#tloSchema">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloDescription"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://tlo#tlodescribes"/>
+                        <owl:someValuesFrom rdf:resource="file://tlo#tloContinuant"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloSituation -->
+
+    <owl:Class rdf:about="file://tlo#tloSituation">
+        <rdfs:subClassOf rdf:resource="file://tlo#tloContinuant"/>
+        <owl:disjointWith rdf:resource="file://tlo#tloevmObject"/>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloSocialInteractionProcess -->
+
+    <owl:Class rdf:about="file://tlo#tloSocialInteractionProcess">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloInteractionProcess"/>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="file://tlo#tlooccurs_in"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="file://tlo#tloAgentCommunication"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://tlo#tlohasParticipant"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://tlo#tloAgent"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloSpatioTemporalPlace -->
+
+    <owl:Class rdf:about="file://tlo#tloSpatioTemporalPlace">
+        <rdfs:subClassOf rdf:resource="file://tlo#tloAbstract"/>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloTime -->
+
+    <owl:Class rdf:about="file://tlo#tloTime">
+        <rdfs:subClassOf rdf:resource="file://tlo#tloAbstract"/>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloevmObject -->
+
+    <owl:Class rdf:about="file://tlo#tloevmObject">
+        <rdfs:subClassOf rdf:resource="file://tlo#tloContinuant"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="file://tlo#tloCollective"/>
+            <rdf:Description rdf:about="file://tlo#tloDescription"/>
+            <rdf:Description rdf:about="file://tlo#tloProperty"/>
+            <rdf:Description rdf:about="file://tlo#tloSpatioTemporalPlace"/>
+            <rdf:Description rdf:about="file://tlo#tloTime"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="file://tlo#tloEnumDataTypes"/>
+            <rdf:Description rdf:about="file://tlo#tloMethod"/>
+            <rdf:Description rdf:about="file://tlo#tloSchema"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="file://tlo#tloEvent"/>
+            <rdf:Description rdf:about="file://tlo#tloProcess"/>
+            <rdf:Description rdf:about="file://tlo#tloRole"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

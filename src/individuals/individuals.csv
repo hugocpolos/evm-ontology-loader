@@ -1,0 +1,9 @@
+CLASS,INDIVIDUAL_NAME
+nepRobot,robot
+nepNorm,"Not allowed to touch the walls"
+nepNorm,"Should avoid the red ball"
+evmNormViolation,"hit the wall"
+evmNormViolation,"spot the red ball"
+evmEthicalBehaviorMonitor,"monitor 1"
+evmResponsibilityAscription,"responsibility ascription 1"
+evmResponsibilityAscription,"responsibility ascription 2"

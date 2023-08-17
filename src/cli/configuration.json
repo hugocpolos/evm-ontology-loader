@@ -1,0 +1,160 @@
+{
+   "WELCOME_MESSAGE": [
+       "Welcome to the Ethical Violation Management cli. Type 'help' for the command reference"
+   ],
+   "HELP_MESSAGE": [
+       "Ethical Violation Management cli.",
+       "This program helps to visualize and analyze an ethical violation management ontology and",
+       "its individuals.",
+       "",
+       "Available commands, enter 'help <command> for further help:",
+       "exit",
+       "follow",
+       "ifollow",
+       "iproperties",
+       "list",
+       "properties",
+       "select",
+       "show",
+       "unselect"
+   ],
+   "UNKNOWN_COMMAND_MESSAGE": [
+       "This is an unknown command. Enter 'help' for the command reference"
+   ],
+   "LIST_HELP_MESSAGE": [
+       "Lists all individuals of the ontology and it ids",
+       "the list command does not accept any argument"
+   ],
+   "SELECT_HELP_MESSAGE": [
+       "Selects an individual of the ontology",
+       "usage: select <individual_id>",
+       "the <individual_id> argument must be greater or equal than zero and must be one of the ids listed by the 'list' command"
+   ],
+   "UNSELECT_HELP_MESSAGE": [
+       "Unselects the pre selected individual",
+       "the unselect command does not accept any argument and will display an error if there is no selected individual"
+   ],
+   "PROPERTIES_HELP_MESSAGE": [
+       "Lists all properties of the selected individual and it ids",
+       "this command does not accept any argument, and will display an error if there is no selected individual"
+   ],
+   "IPROPERTIES_HELP_MESSAGE": [
+       "Lists all inverse properties of the selected individual and it ids",
+       "this command does not accept any argument, and will display an error if there is no selected individual"
+   ],
+   "FOLLOW_HELP_MESSAGE": [
+       "Follow a property, changing the current selected individual to the target of this property",
+       "usage: follow <property_id>",
+       "the <property_id> argument must be greater or equal than zero and must be one of the ids listed by the 'properties' command",
+       "this command will display an error if there is no selected individual"
+   ],
+   "IFOLLOW_HELP_MESSAGE": [
+       "Follow an inverse property, changing the current selected individual to the source of this inverse property",
+       "usage: ifollow <iproperty_id>",
+       "the <iproperty_id> argument must be greater or equal than zero and must be one of the ids listed by the 'iproperties' command",
+       "this command will display an error if there is no selected individual"
+   ],
+   "SHOW_HELP_MESSAGE": [
+       "Shows informations about the selected individual. If there is no selected individual, this message will be shown"
+   ],
+   "EXIT_HELP_MESSAGE": [
+       "Exit the program. It can also be triggered by pressing <Ctrl+d>"
+   ],
+   "NO_SELECTED_INDIVIDUAL": [
+       "There is no selected individual"
+   ],
+   "OUT_OF_RANGE": [
+       "'{field}' #{index} is out of range"
+   ],
+
+   "SEARCH_OPTIONS":
+   [
+    "evmEventCausation",
+    "evmResponsibilityAscription",
+    "evmAscriptionJustelification",
+    "evmGroundsForAscription",
+    "evmAgentAccountability",
+    "evmNormViolationIncident",
+    "evmEthicalBehaviorMonitor",
+    "evmNormViolation",
+    "evmSocioTechnologyGovernance",
+    "evmLiabilitySanction",
+    "evmLegalResponsibilityAscription",
+    "evmgovernance",
+    "evmresponsibility",
+    "evmAccountablePerson",
+    "evmDistributedResponsibility",
+    "evmEnumDataTypes",
+    "evmEthicalResponsibilityAscription",
+    "evmlegal",
+    "nepAgent",
+    "nepAgentAction",
+    "nepGovernment",
+    "nepAgentRole",
+    "nepNorm",
+    "nepSituation",
+    "nepRobot",
+    "nepTeam",
+    "nepPlanAction",
+    "nepEthicalPrinciple",
+    "nepDerogation",
+    "nepAgentPlan",
+    "nepnorm",
+    "nepEthicalDilemma",
+    "nepEthicalTheory",
+    "nepSituationPlanRepertoire",
+    "nepTaskAssignment",
+    "nepSocialCollection",
+    "nepEnvironment",
+    "nepAnswer",
+    "nepQuery",
+    "nepActionRationale",
+    "nepDilemmaMitigationPrinciple",
+    "nepnorm",
+    "nepteam",
+    "nepCommunity",
+    "nepCompany",
+    "nepConsequentialistNorm",
+    "nepDeontologicalNorm",
+    "nepDepartment",
+    "nepEnumDataTypes",
+    "nepExplanation",
+    "nepObligation",
+    "nepOrganization",
+    "nepPermission",
+    "nepProhibition",
+    "nepVirtuousNorm",
+    "nepautonomous",
+    "nepdilemma",
+    "nepethical",
+    "nepethical",
+    "tloAgentCommunication",
+    "tloMethod",
+    "tloAgent",
+    "tloProcess",
+    "tloPlan",
+    "tloInformationArtifact",
+    "tloRole",
+    "tloEnumDataTypes",
+    "tloContinuant",
+    "tloSituation",
+    "tloCollective",
+    "tloPhysical",
+    "tloAbstract",
+    "tloActionEvent",
+    "tloEntity",
+    "tloDescription",
+    "tloEvent",
+    "tloTime",
+    "tloevmObject",
+    "tloProperty",
+    "tloSpatioTemporalPlace",
+    "tloEnvironmentalEvent",
+    "tloAttribute",
+    "tloManner",
+    "tloOccurrent",
+    "tloInteractionProcess",
+    "tloSchema",
+    "tloSocialInteractionProcess"
+   ]
+}

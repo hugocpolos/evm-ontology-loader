@@ -1,0 +1,6 @@
+PROPERTY_NAME,SOURCE_NAME,TARGET_NAME
+evmis_violation_of,"hit the wall","Not allowed to touch the walls"
+evmis_violation_of,"spot the red ball","Should avoid the red ball"
+evmelicits,"hit the wall","responsibility ascription 1"
+evmelicits,"spot the red ball","responsibility ascription 1"
+evmelicits,"spot the red ball","responsibility ascription 2"

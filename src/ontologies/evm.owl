@@ -1,0 +1,2085 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="file://home/hugo.marredo/Documents/personal/tg2/python3/ontologies/evm.owl#"
+     xml:base="file://home/hugo.marredo/Documents/personal/tg2/python3/ontologies/evm.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:evm="file://evm"
+     xmlns:nep="file://nep"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:tlo="file://tlo#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#">
+    <owl:Ontology rdf:about="file://home/hugo.marredo/Documents/personal/tg2/python3/ontologies/evm.owl">
+        <owl:imports rdf:resource="file:///home/hugo.marredo/Documents/personal/tg2/python3/ontologies/nep.owl"/>
+        <owl:imports rdf:resource="file:///home/hugo.marredo/Documents/personal/tg2/python3/ontologies/tlo.owl"/>
+        <rdfs:comment>An example mapping of ERAS-EVM CLIF axioms into OWL axioms using Manchester OWL syntax</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#comment -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- file://evmactor -->
+
+    <owl:ObjectProperty rdf:about="file://evmactor">
+        <rdfs:domain rdf:resource="file://evmEventCausation"/>
+        <rdfs:range rdf:resource="file://nepAgent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://evmascribes -->
+
+    <owl:ObjectProperty rdf:about="file://evmascribes">
+        <rdfs:domain rdf:resource="file://nepAgent"/>
+        <rdfs:range rdf:resource="file://evmResponsibilityAscription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://evmascribes_distributed_responsibility_in -->
+
+    <owl:ObjectProperty rdf:about="file://evmascribes_distributed_responsibility_in">
+        <rdfs:domain rdf:resource="file://evmResponsibilityAscription"/>
+        <rdfs:range rdf:resource="file://evmResponsibilityAscription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://evmcause -->
+
+    <owl:ObjectProperty rdf:about="file://evmcause">
+        <rdfs:domain rdf:resource="file://evmEventCausation"/>
+        <rdfs:range rdf:resource="file://nepAgentAction"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://evmcomposed_of -->
+
+    <owl:ObjectProperty rdf:about="file://evmcomposed_of">
+        <rdfs:domain rdf:resource="file://evmAscriptionJustification"/>
+        <rdfs:range rdf:resource="file://evmGroundsForAscription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://evmcontributes_to -->
+
+    <owl:ObjectProperty rdf:about="file://evmcontributes_to">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://evmAgentAccountability"/>
+                    <rdf:Description rdf:about="file://evmEventCausation"/>
+                    <rdf:Description rdf:about="file://evmNormViolationIncident"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="file://evmGroundsForAscription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://evmdetects -->
+
+    <owl:ObjectProperty rdf:about="file://evmdetects">
+        <rdfs:domain rdf:resource="file://evmEthicalBehaviorMonitor"/>
+        <rdfs:range rdf:resource="file://evmNormViolation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://evmdocumented_in -->
+
+    <owl:ObjectProperty rdf:about="file://evmdocumented_in">
+        <rdfs:domain rdf:resource="file://evmNormViolation"/>
+        <rdfs:range rdf:resource="file://evmNormViolationIncident"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://evmeffect -->
+
+    <owl:ObjectProperty rdf:about="file://evmeffect">
+        <rdfs:domain rdf:resource="file://evmEventCausation"/>
+        <rdfs:range rdf:resource="file://evmNormViolation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://evmelicits -->
+
+    <owl:ObjectProperty rdf:about="file://evmelicits">
+        <rdfs:domain rdf:resource="file://evmNormViolation"/>
+        <rdfs:range rdf:resource="file://evmResponsibilityAscription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://evmhas_achieved -->
+
+    <owl:ObjectProperty rdf:about="file://evmhas_achieved">
+        <rdfs:domain rdf:resource="file://nepGovernment"/>
+        <rdfs:range rdf:resource="file://evmSocioTechnologyGovernance"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://evmimposes -->
+
+    <owl:ObjectProperty rdf:about="file://evmimposes">
+        <rdfs:domain rdf:resource="file://nepAgentRole"/>
+        <rdfs:range rdf:resource="file://evmAgentAccountability"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://evmis_ascribed_to -->
+
+    <owl:ObjectProperty rdf:about="file://evmis_ascribed_to">
+        <rdfs:domain rdf:resource="file://evmResponsibilityAscription"/>
+        <rdfs:range rdf:resource="file://nepAgent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://evmis_jurisdiction_of -->
+
+    <owl:ObjectProperty rdf:about="file://evmis_jurisdiction_of">
+        <rdfs:domain rdf:resource="file://nepGovernment"/>
+        <rdfs:range rdf:resource="file://nepAgent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://evmis_sanction_for -->
+
+    <owl:ObjectProperty rdf:about="file://evmis_sanction_for">
+        <rdfs:domain rdf:resource="file://evmLiabilitySanction"/>
+        <rdfs:range rdf:resource="file://evmLegalResponsibilityAscription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://evmis_violation_of -->
+
+    <owl:ObjectProperty rdf:about="file://evmis_violation_of">
+        <rdfs:domain rdf:resource="file://evmNormViolation"/>
+        <rdfs:range rdf:resource="file://nepNorm"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://evmjustifies -->
+
+    <owl:ObjectProperty rdf:about="file://evmjustifies">
+        <rdfs:domain rdf:resource="file://evmAscriptionJustification"/>
+        <rdfs:range rdf:resource="file://evmResponsibilityAscription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://evmmaturity -->
+
+    <owl:ObjectProperty rdf:about="file://evmmaturity">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="file://evmSocioTechnologyGovernance"/>
+        <rdfs:range rdf:resource="file://evmgovernance_levels"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://evmmay_be_sanctioned_with -->
+
+    <owl:ObjectProperty rdf:about="file://evmmay_be_sanctioned_with">
+        <rdfs:domain rdf:resource="file://nepAgent"/>
+        <rdfs:range rdf:resource="file://evmLiabilitySanction"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://evmmay_prescribe -->
+
+    <owl:ObjectProperty rdf:about="file://evmmay_prescribe">
+        <rdfs:domain rdf:resource="file://evmLegalResponsibilityAscription"/>
+        <rdfs:range rdf:resource="file://evmLiabilitySanction"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://evmobserves -->
+
+    <owl:ObjectProperty rdf:about="file://evmobserves">
+        <rdfs:domain rdf:resource="file://evmEthicalBehaviorMonitor"/>
+        <rdfs:range rdf:resource="file://nepAgent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://evmperceived_in -->
+
+    <owl:ObjectProperty rdf:about="file://evmperceived_in">
+        <rdfs:domain rdf:resource="file://tlo#ActionEvent"/>
+        <rdfs:range rdf:resource="file://nepSituation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://evmrecords_incidence_of -->
+
+    <owl:ObjectProperty rdf:about="file://evmrecords_incidence_of">
+        <rdfs:domain rdf:resource="file://evmNormViolationIncident"/>
+        <rdfs:range rdf:resource="file://evmNormViolation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://evmscope -->
+
+    <owl:ObjectProperty rdf:about="file://evmscope">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="file://evmResponsibilityAscription"/>
+        <rdfs:range rdf:resource="file://evmresponsibility_extent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- file://evmAccountablePerson -->
+
+    <owl:Class rdf:about="file://evmAccountablePerson">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://nepAgent"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="file://nepRobot"/>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="file://evmis_ascribed_to"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://evmResponsibilityAscription"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment>helper class for mapping CLIF axioms</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- file://evmAgentAccountability -->
+
+    <owl:Class rdf:about="file://evmAgentAccountability">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#Schema"/>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="file://evmimposes"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="file://nepAgentRole"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://evmAscriptionJustification -->
+
+    <owl:Class rdf:about="file://evmAscriptionJustification">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#InformationArtifact"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://evmjustifies"/>
+                        <owl:someValuesFrom rdf:resource="file://evmResponsibilityAscription"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="file://tlo#tloformulates"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="file://nepAgent"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://evmcomposed_of"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://evmGroundsForAscription"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://evmDistributedResponsibility -->
+
+    <owl:Class rdf:about="file://evmDistributedResponsibility">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://evmResponsibilityAscription"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://evmscope"/>
+                        <owl:hasValue rdf:resource="file://evmmulti_agents"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://evmascribes_distributed_responsibility_in"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://evmResponsibilityAscription"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment>helper class for mapping CLIF axioms</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- file://evmEnumDataTypes -->
+
+    <owl:Class rdf:about="file://evmEnumDataTypes">
+        <rdfs:subClassOf rdf:resource="file://tlo#EnumDataTypes"/>
+    </owl:Class>
+    
+
+
+    <!-- file://evmEthicalBehaviorMonitor -->
+
+    <owl:Class rdf:about="file://evmEthicalBehaviorMonitor">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#evmObject"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://evmobserves"/>
+                        <owl:someValuesFrom rdf:resource="file://nepAgent"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://evmdetects"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://evmNormViolation"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://evmEthicalResponsibilityAscription -->
+
+    <owl:Class rdf:about="file://evmEthicalResponsibilityAscription">
+        <rdfs:subClassOf rdf:resource="file://evmResponsibilityAscription"/>
+        <owl:disjointWith rdf:resource="file://evmLegalResponsibilityAscription"/>
+    </owl:Class>
+    
+
+
+    <!-- file://evmEventCausation -->
+
+    <owl:Class rdf:about="file://evmEventCausation">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#InteractionProcess"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://evmactor"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://nepAgent"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://evmcause"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://nepAgentAction"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://evmeffect"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://evmNormViolation"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://evmGroundsForAscription -->
+
+    <owl:Class rdf:about="file://evmGroundsForAscription">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#InformationArtifact"/>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="file://evmcontributes_to"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="file://evmAgentAccountability"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="file://evmcontributes_to"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="file://evmEventCausation"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="file://evmcontributes_to"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="file://evmNormViolationIncident"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://evmLegalResponsibilityAscription -->
+
+    <owl:Class rdf:about="file://evmLegalResponsibilityAscription">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://evmResponsibilityAscription"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://evmmay_prescribe"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://evmLegalResponsibilityAscription"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://evmLiabilitySanction -->
+
+    <owl:Class rdf:about="file://evmLiabilitySanction">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#Method"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://evmis_sanction_for"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://evmLegalResponsibilityAscription"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://evmNormViolation -->
+
+    <owl:Class rdf:about="file://evmNormViolation">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#ActionEvent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://evmdocumented_in"/>
+                        <owl:someValuesFrom rdf:resource="file://evmNormViolationIncident"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://evmelicits"/>
+                        <owl:someValuesFrom rdf:resource="file://evmResponsibilityAscription"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://evmis_violation_of"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://nepNorm"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="file://evmeffect"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://evmEventCausation"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://evmNormViolationIncident -->
+
+    <owl:Class rdf:about="file://evmNormViolationIncident">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#InformationArtifact"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://evmrecords_incidence_of"/>
+                        <owl:someValuesFrom rdf:resource="file://evmNormViolation"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://evmResponsibilityAscription -->
+
+    <owl:Class rdf:about="file://evmResponsibilityAscription">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#SocialInteractionProcess"/>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="file://evmjustifies"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="file://evmAscriptionJustification"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://evmascribes_distributed_responsibility_in"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://evmResponsibilityAscription"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://evmis_ascribed_to"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://nepAgent"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="file://evmascribes"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://nepAgent"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://evmSocioTechnologyGovernance -->
+
+    <owl:Class rdf:about="file://evmSocioTechnologyGovernance">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#InteractionProcess"/>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="file://evmhas_achieved"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="file://nepGovernment"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://evmmaturity"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="file://evmcertified_high_capacity"/>
+                                    <rdf:Description rdf:about="file://evmevolving_capacity"/>
+                                    <rdf:Description rdf:about="file://evmno_capacity"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://evmgovernance_levels -->
+
+    <owl:Class rdf:about="file://evmgovernance_levels">
+        <rdfs:subClassOf rdf:resource="file://evmEnumDataTypes"/>
+        <rdfs:comment>Governance maturity levels </rdfs:comment>
+        <rdfs:comment>{ no_capacity, evolving_capacity, certified_high_capacity }</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- file://evmlegal_liabilities -->
+
+    <owl:Class rdf:about="file://evmlegal_liabilities">
+        <rdfs:subClassOf rdf:resource="file://evmEnumDataTypes"/>
+        <rdfs:comment>examples of Legal Liabilities</rdfs:comment>
+        <rdfs:comment>{ fine, penalty, restitution, suspension, restriction, demotion, expulsion, instruction, civic_service, incarceration, execution }</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- file://evmresponsibility_extent -->
+
+    <owl:Class rdf:about="file://evmresponsibility_extent">
+        <rdfs:subClassOf rdf:resource="file://evmEnumDataTypes"/>
+        <rdfs:comment>Responsibility Extent</rdfs:comment>
+        <rdfs:comment>{ single_agent, multi_agents }</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- file://evmcertified_high_capacity -->
+
+    <owl:NamedIndividual rdf:about="file://evmcertified_high_capacity">
+        <rdf:type rdf:resource="file://evmgovernance_levels"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file://evmevolving_capacity -->
+
+    <owl:NamedIndividual rdf:about="file://evmevolving_capacity">
+        <rdf:type rdf:resource="file://evmgovernance_levels"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file://evmmulti_agents -->
+
+    <owl:NamedIndividual rdf:about="file://evmmulti_agents">
+        <rdf:type rdf:resource="file://evmresponsibility_extent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file://evmno_capacity -->
+
+    <owl:NamedIndividual rdf:about="file://evmno_capacity">
+        <rdf:type rdf:resource="file://evmgovernance_levels"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file://evmsingle_agent -->
+
+    <owl:NamedIndividual rdf:about="file://evmsingle_agent">
+        <rdf:type rdf:resource="file://evmresponsibility_extent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="urn:swrl:var#t">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#r">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#h">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#hra">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#g">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#mg">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#nv">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#n">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#ec">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#ga">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#aj">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#eda">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#dra">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#m">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#a">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#pa">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#aa">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#s">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#ra">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#x">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#b">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="file://nepTeam"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="file://nepteam_type"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#t"/>
+                                <swrl:argument2 rdf:resource="file://nephuman_directed"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="file://nepRobot"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="file://tlo#is_member_of"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                                <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                        <swrl:classPredicate rdf:resource="file://evmAccountablePerson"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl:var#h"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                <swrl:propertyPredicate rdf:resource="file://tlo#is_member_of"/>
+                                                                <swrl:argument1 rdf:resource="urn:swrl:var#h"/>
+                                                                <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                <rdf:first>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                        <swrl:classPredicate rdf:resource="file://evmResponsibilityAscription"/>
+                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#hra"/>
+                                                                    </rdf:Description>
+                                                                </rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                        <rdf:first>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                <swrl:propertyPredicate rdf:resource="file://evmscope"/>
+                                                                                <swrl:argument1 rdf:resource="urn:swrl:var#hra"/>
+                                                                                <swrl:argument2 rdf:resource="file://evmmulti_agents"/>
+                                                                            </rdf:Description>
+                                                                        </rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                <rdf:first>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                        <swrl:propertyPredicate rdf:resource="file://evmis_ascribed_to"/>
+                                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#hra"/>
+                                                                                        <swrl:argument2 rdf:resource="urn:swrl:var#h"/>
+                                                                                    </rdf:Description>
+                                                                                </rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                        <rdf:first>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                                                <swrl:classPredicate rdf:resource="file://nepGovernment"/>
+                                                                                                <swrl:argument1 rdf:resource="urn:swrl:var#g"/>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:first>
+                                                                                        <rdf:rest>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                <rdf:first>
+                                                                                                    <rdf:Description>
+                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                        <swrl:propertyPredicate rdf:resource="file://evmis_jurisdiction_of"/>
+                                                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#g"/>
+                                                                                                        <swrl:argument2 rdf:resource="urn:swrl:var#h"/>
+                                                                                                    </rdf:Description>
+                                                                                                </rdf:first>
+                                                                                                <rdf:rest>
+                                                                                                    <rdf:Description>
+                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                        <rdf:first>
+                                                                                                            <rdf:Description>
+                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                                <swrl:propertyPredicate rdf:resource="file://evmis_jurisdiction_of"/>
+                                                                                                                <swrl:argument1 rdf:resource="urn:swrl:var#g"/>
+                                                                                                                <swrl:argument2 rdf:resource="urn:swrl:var#r"/>
+                                                                                                            </rdf:Description>
+                                                                                                        </rdf:first>
+                                                                                                        <rdf:rest>
+                                                                                                            <rdf:Description>
+                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                <rdf:first>
+                                                                                                                    <rdf:Description>
+                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                                                                        <swrl:classPredicate rdf:resource="file://evmSocioTechnologyGovernance"/>
+                                                                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#mg"/>
+                                                                                                                    </rdf:Description>
+                                                                                                                </rdf:first>
+                                                                                                                <rdf:rest>
+                                                                                                                    <rdf:Description>
+                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                        <rdf:first>
+                                                                                                                            <rdf:Description>
+                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                                                <swrl:propertyPredicate rdf:resource="file://evmmaturity"/>
+                                                                                                                                <swrl:argument1 rdf:resource="urn:swrl:var#mg"/>
+                                                                                                                                <swrl:argument2 rdf:resource="file://evmevolving_capacity"/>
+                                                                                                                            </rdf:Description>
+                                                                                                                        </rdf:first>
+                                                                                                                        <rdf:rest>
+                                                                                                                            <rdf:Description>
+                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                                <rdf:first>
+                                                                                                                                    <rdf:Description>
+                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                                                        <swrl:propertyPredicate rdf:resource="file://evmhas_achieved"/>
+                                                                                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#g"/>
+                                                                                                                                        <swrl:argument2 rdf:resource="urn:swrl:var#mg"/>
+                                                                                                                                    </rdf:Description>
+                                                                                                                                </rdf:first>
+                                                                                                                                <rdf:rest>
+                                                                                                                                    <rdf:Description>
+                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                                        <rdf:first>
+                                                                                                                                            <rdf:Description>
+                                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                                                                                                <swrl:classPredicate rdf:resource="file://evmNormViolation"/>
+                                                                                                                                                <swrl:argument1 rdf:resource="urn:swrl:var#nv"/>
+                                                                                                                                            </rdf:Description>
+                                                                                                                                        </rdf:first>
+                                                                                                                                        <rdf:rest>
+                                                                                                                                            <rdf:Description>
+                                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                                                <rdf:first>
+                                                                                                                                                    <rdf:Description>
+                                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                                                                                                        <swrl:classPredicate rdf:resource="file://nepNorm"/>
+                                                                                                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#n"/>
+                                                                                                                                                    </rdf:Description>
+                                                                                                                                                </rdf:first>
+                                                                                                                                                <rdf:rest>
+                                                                                                                                                    <rdf:Description>
+                                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                                                        <rdf:first>
+                                                                                                                                                            <rdf:Description>
+                                                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                                                                                <swrl:propertyPredicate rdf:resource="file://evmis_violation_of"/>
+                                                                                                                                                                <swrl:argument1 rdf:resource="urn:swrl:var#nv"/>
+                                                                                                                                                                <swrl:argument2 rdf:resource="urn:swrl:var#n"/>
+                                                                                                                                                            </rdf:Description>
+                                                                                                                                                        </rdf:first>
+                                                                                                                                                        <rdf:rest>
+                                                                                                                                                            <rdf:Description>
+                                                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                                                                <rdf:first>
+                                                                                                                                                                    <rdf:Description>
+                                                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                                                                                        <swrl:propertyPredicate rdf:resource="file://nepcategory"/>
+                                                                                                                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#n"/>
+                                                                                                                                                                        <swrl:argument2 rdf:resource="file://nepethical_norm"/>
+                                                                                                                                                                    </rdf:Description>
+                                                                                                                                                                </rdf:first>
+                                                                                                                                                                <rdf:rest>
+                                                                                                                                                                    <rdf:Description>
+                                                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                                                                        <rdf:first>
+                                                                                                                                                                            <rdf:Description>
+                                                                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                                                                                                                                <swrl:classPredicate rdf:resource="file://evmEventCausation"/>
+                                                                                                                                                                                <swrl:argument1 rdf:resource="urn:swrl:var#ec"/>
+                                                                                                                                                                            </rdf:Description>
+                                                                                                                                                                        </rdf:first>
+                                                                                                                                                                        <rdf:rest>
+                                                                                                                                                                            <rdf:Description>
+                                                                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                                                                                <rdf:first>
+                                                                                                                                                                                    <rdf:Description>
+                                                                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                                                                                                        <swrl:propertyPredicate rdf:resource="file://evmactor"/>
+                                                                                                                                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#ec"/>
+                                                                                                                                                                                        <swrl:argument2 rdf:resource="urn:swrl:var#r"/>
+                                                                                                                                                                                    </rdf:Description>
+                                                                                                                                                                                </rdf:first>
+                                                                                                                                                                                <rdf:rest>
+                                                                                                                                                                                    <rdf:Description>
+                                                                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                                                                                        <rdf:first>
+                                                                                                                                                                                            <rdf:Description>
+                                                                                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                                                                                                                <swrl:propertyPredicate rdf:resource="file://evmeffect"/>
+                                                                                                                                                                                                <swrl:argument1 rdf:resource="urn:swrl:var#ec"/>
+                                                                                                                                                                                                <swrl:argument2 rdf:resource="urn:swrl:var#nv"/>
+                                                                                                                                                                                            </rdf:Description>
+                                                                                                                                                                                        </rdf:first>
+                                                                                                                                                                                        <rdf:rest>
+                                                                                                                                                                                            <rdf:Description>
+                                                                                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                                                                                                <rdf:first>
+                                                                                                                                                                                                    <rdf:Description>
+                                                                                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                                                                                                                                                        <swrl:classPredicate rdf:resource="file://evmGroundsForAscription"/>
+                                                                                                                                                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#ga"/>
+                                                                                                                                                                                                    </rdf:Description>
+                                                                                                                                                                                                </rdf:first>
+                                                                                                                                                                                                <rdf:rest>
+                                                                                                                                                                                                    <rdf:Description>
+                                                                                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                                                                                                        <rdf:first>
+                                                                                                                                                                                                            <rdf:Description>
+                                                                                                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                                                                                                                                <swrl:propertyPredicate rdf:resource="file://evmcontributes_to"/>
+                                                                                                                                                                                                                <swrl:argument1 rdf:resource="urn:swrl:var#ec"/>
+                                                                                                                                                                                                                <swrl:argument2 rdf:resource="urn:swrl:var#ga"/>
+                                                                                                                                                                                                            </rdf:Description>
+                                                                                                                                                                                                        </rdf:first>
+                                                                                                                                                                                                        <rdf:rest>
+                                                                                                                                                                                                            <rdf:Description>
+                                                                                                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                                                                                                                <rdf:first>
+                                                                                                                                                                                                                    <rdf:Description>
+                                                                                                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                                                                                                                                                                        <swrl:classPredicate rdf:resource="file://evmAscriptionJustification"/>
+                                                                                                                                                                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#aj"/>
+                                                                                                                                                                                                                    </rdf:Description>
+                                                                                                                                                                                                                </rdf:first>
+                                                                                                                                                                                                                <rdf:rest>
+                                                                                                                                                                                                                    <rdf:Description>
+                                                                                                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                                                                                                                        <rdf:first>
+                                                                                                                                                                                                                            <rdf:Description>
+                                                                                                                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                                                                                                                                                <swrl:propertyPredicate rdf:resource="file://evmcomposed_of"/>
+                                                                                                                                                                                                                                <swrl:argument1 rdf:resource="urn:swrl:var#aj"/>
+                                                                                                                                                                                                                                <swrl:argument2 rdf:resource="urn:swrl:var#ga"/>
+                                                                                                                                                                                                                            </rdf:Description>
+                                                                                                                                                                                                                        </rdf:first>
+                                                                                                                                                                                                                        <rdf:rest>
+                                                                                                                                                                                                                            <rdf:Description>
+                                                                                                                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                                                                                                                                <rdf:first>
+                                                                                                                                                                                                                                    <rdf:Description>
+                                                                                                                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                                                                                                                                                                                        <swrl:classPredicate rdf:resource="file://evmEthicalResponsibilityAscription"/>
+                                                                                                                                                                                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#eda"/>
+                                                                                                                                                                                                                                    </rdf:Description>
+                                                                                                                                                                                                                                </rdf:first>
+                                                                                                                                                                                                                                <rdf:rest>
+                                                                                                                                                                                                                                    <rdf:Description>
+                                                                                                                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                                                                                                                                                        <rdf:first>
+                                                                                                                                                                                                                                            <rdf:Description>
+                                                                                                                                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                                                                                                                                                                <swrl:propertyPredicate rdf:resource="file://evmjustifies"/>
+                                                                                                                                                                                                                                                <swrl:argument1 rdf:resource="urn:swrl:var#aj"/>
+                                                                                                                                                                                                                                                <swrl:argument2 rdf:resource="urn:swrl:var#eda"/>
+                                                                                                                                                                                                                                            </rdf:Description>
+                                                                                                                                                                                                                                        </rdf:first>
+                                                                                                                                                                                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                                                                                                                                                                    </rdf:Description>
+                                                                                                                                                                                                                                </rdf:rest>
+                                                                                                                                                                                                                            </rdf:Description>
+                                                                                                                                                                                                                        </rdf:rest>
+                                                                                                                                                                                                                    </rdf:Description>
+                                                                                                                                                                                                                </rdf:rest>
+                                                                                                                                                                                                            </rdf:Description>
+                                                                                                                                                                                                        </rdf:rest>
+                                                                                                                                                                                                    </rdf:Description>
+                                                                                                                                                                                                </rdf:rest>
+                                                                                                                                                                                            </rdf:Description>
+                                                                                                                                                                                        </rdf:rest>
+                                                                                                                                                                                    </rdf:Description>
+                                                                                                                                                                                </rdf:rest>
+                                                                                                                                                                            </rdf:Description>
+                                                                                                                                                                        </rdf:rest>
+                                                                                                                                                                    </rdf:Description>
+                                                                                                                                                                </rdf:rest>
+                                                                                                                                                            </rdf:Description>
+                                                                                                                                                        </rdf:rest>
+                                                                                                                                                    </rdf:Description>
+                                                                                                                                                </rdf:rest>
+                                                                                                                                            </rdf:Description>
+                                                                                                                                        </rdf:rest>
+                                                                                                                                    </rdf:Description>
+                                                                                                                                </rdf:rest>
+                                                                                                                            </rdf:Description>
+                                                                                                                        </rdf:rest>
+                                                                                                                    </rdf:Description>
+                                                                                                                </rdf:rest>
+                                                                                                            </rdf:Description>
+                                                                                                        </rdf:rest>
+                                                                                                    </rdf:Description>
+                                                                                                </rdf:rest>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:rest>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="file://evmis_ascribed_to"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#eda"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="file://evmascribes_distributed_responsibility_in"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#eda"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#hra"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="file://evmDistributedResponsibility"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#dra"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="file://evmEventCausation"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#ec"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="file://evmGroundsForAscription"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#ga"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="file://evmcontributes_to"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl:var#ec"/>
+                                                <swrl:argument2 rdf:resource="urn:swrl:var#ga"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="file://evmactor"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl:var#ec"/>
+                                                        <swrl:argument2 rdf:resource="urn:swrl:var#r"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                <swrl:classPredicate rdf:resource="file://nepRobot"/>
+                                                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                <rdf:first>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                        <swrl:classPredicate rdf:resource="file://evmAscriptionJustification"/>
+                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#aj"/>
+                                                                    </rdf:Description>
+                                                                </rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                        <rdf:first>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                                <swrl:classPredicate rdf:resource="file://nepTeam"/>
+                                                                                <swrl:argument1 rdf:resource="urn:swrl:var#t"/>
+                                                                            </rdf:Description>
+                                                                        </rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                <rdf:first>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                        <swrl:propertyPredicate rdf:resource="file://nepteam_type"/>
+                                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#t"/>
+                                                                                        <swrl:argument2 rdf:resource="file://nephuman_directed"/>
+                                                                                    </rdf:Description>
+                                                                                </rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                        <rdf:first>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                <swrl:propertyPredicate rdf:resource="file://tlo#is_member_of"/>
+                                                                                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                                                                                <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:first>
+                                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="file://evmjustifies"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#aj"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#dra"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="file://evmEventCausation"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#ec"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="file://evmEthicalBehaviorMonitor"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#m"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="file://evmNormViolation"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#nv"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="file://nepAgent"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                        <swrl:classPredicate rdf:resource="file://nepPlanAction"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl:var#pa"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                <swrl:classPredicate rdf:resource="file://nepAgentAction"/>
+                                                                <swrl:argument1 rdf:resource="urn:swrl:var#aa"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                <rdf:first>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                        <swrl:propertyPredicate rdf:resource="file://nepis_implemented_by"/>
+                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#pa"/>
+                                                                        <swrl:argument2 rdf:resource="urn:swrl:var#aa"/>
+                                                                    </rdf:Description>
+                                                                </rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                        <rdf:first>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                <swrl:propertyPredicate rdf:resource="file://nepexecutes"/>
+                                                                                <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                                                                                <swrl:argument2 rdf:resource="urn:swrl:var#pa"/>
+                                                                            </rdf:Description>
+                                                                        </rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                <rdf:first>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                        <swrl:propertyPredicate rdf:resource="file://evmobserves"/>
+                                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#m"/>
+                                                                                        <swrl:argument2 rdf:resource="urn:swrl:var#a"/>
+                                                                                    </rdf:Description>
+                                                                                </rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                        <rdf:first>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                <swrl:propertyPredicate rdf:resource="file://evmdetects"/>
+                                                                                                <swrl:argument1 rdf:resource="urn:swrl:var#m"/>
+                                                                                                <swrl:argument2 rdf:resource="urn:swrl:var#nv"/>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:first>
+                                                                                        <rdf:rest>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                <rdf:first>
+                                                                                                    <rdf:Description>
+                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                        <swrl:propertyPredicate rdf:resource="file://evmcause"/>
+                                                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#ec"/>
+                                                                                                        <swrl:argument2 rdf:resource="urn:swrl:var#aa"/>
+                                                                                                    </rdf:Description>
+                                                                                                </rdf:first>
+                                                                                                <rdf:rest>
+                                                                                                    <rdf:Description>
+                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                        <rdf:first>
+                                                                                                            <rdf:Description>
+                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                                <swrl:propertyPredicate rdf:resource="file://evmeffect"/>
+                                                                                                                <swrl:argument1 rdf:resource="urn:swrl:var#ec"/>
+                                                                                                                <swrl:argument2 rdf:resource="urn:swrl:var#nv"/>
+                                                                                                            </rdf:Description>
+                                                                                                        </rdf:first>
+                                                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                                    </rdf:Description>
+                                                                                                </rdf:rest>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:rest>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="file://evmactor"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#ec"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#a"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="file://evmLegalResponsibilityAscription"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="file://nepAgent"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="file://evmis_ascribed_to"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#a"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="file://evmLiabilitySanction"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="file://evmis_sanction_for"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                                                        <swrl:argument2 rdf:resource="urn:swrl:var#r"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="file://evmmay_be_sanctioned_with"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="file://evmNormViolation"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#nv"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="file://nepNorm"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#n"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="file://evmis_violation_of"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#nv"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#n"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="file://nepcategory"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl:var#n"/>
+                                                <swrl:argument2 rdf:resource="file://nepethical_norm"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                        <swrl:classPredicate rdf:resource="file://evmResponsibilityAscription"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl:var#ra"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                <swrl:propertyPredicate rdf:resource="file://evmelicits"/>
+                                                                <swrl:argument1 rdf:resource="urn:swrl:var#nv"/>
+                                                                <swrl:argument2 rdf:resource="urn:swrl:var#ra"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="file://evmEthicalResponsibilityAscription"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#ra"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="file://evmNormViolation"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#nv"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="file://nepNorm"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#n"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="file://evmis_violation_of"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#nv"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#n"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="file://nepcategory"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl:var#n"/>
+                                                <swrl:argument2 rdf:resource="file://neplegal_norm"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                        <swrl:classPredicate rdf:resource="file://evmResponsibilityAscription"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl:var#ra"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                <swrl:propertyPredicate rdf:resource="file://evmelicits"/>
+                                                                <swrl:argument1 rdf:resource="urn:swrl:var#nv"/>
+                                                                <swrl:argument2 rdf:resource="urn:swrl:var#ra"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="file://evmLegalResponsibilityAscription"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#ra"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="file://evmResponsibilityAscription"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#ra"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="file://evmResponsibilityAscription"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#dra"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="file://evmascribes_distributed_responsibility_in"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#dra"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#ra"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#ra"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#dra"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="file://evmResponsibilityAscription"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#ra"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="file://evmscope"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#ra"/>
+                                <swrl:argument2 rdf:resource="file://evmsingle_agent"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="file://evmis_ascribed_to"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#ra"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#h"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="file://evmAccountablePerson"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#h"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="file://evmResponsibilityAscription"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="file://nepGovernment"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#g"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="file://evmSocioTechnologyGovernance"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#mg"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="file://evmmaturity"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl:var#mg"/>
+                                                <swrl:argument2 rdf:resource="file://evmno_capacity"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="file://evmhas_achieved"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl:var#g"/>
+                                                        <swrl:argument2 rdf:resource="urn:swrl:var#mg"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                <swrl:classPredicate rdf:resource="file://nepAgent"/>
+                                                                <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                <rdf:first>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                        <swrl:propertyPredicate rdf:resource="file://evmis_jurisdiction_of"/>
+                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#g"/>
+                                                                        <swrl:argument2 rdf:resource="urn:swrl:var#a"/>
+                                                                    </rdf:Description>
+                                                                </rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                        <rdf:first>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                <swrl:propertyPredicate rdf:resource="file://evmis_ascribed_to"/>
+                                                                                <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                                                                                <swrl:argument2 rdf:resource="urn:swrl:var#a"/>
+                                                                            </rdf:Description>
+                                                                        </rdf:first>
+                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="file://evmAccountablePerson"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="file://evmResponsibilityAscription"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="file://evmascribes"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#x"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="file://evmis_ascribed_to"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#b"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="file://nepAgent"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                        <swrl:classPredicate rdf:resource="file://nepAgent"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl:var#b"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#b"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

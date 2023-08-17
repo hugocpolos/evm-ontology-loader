@@ -1,0 +1,2177 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="file://home/hugo.marredo/Documents/personal/tg2/python3/ontologies/nep.owl#"
+     xml:base="file://home/hugo.marredo/Documents/personal/tg2/python3/ontologies/nep.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:nep="file://nep"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:tlo="file://tlo#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#">
+    <owl:Ontology rdf:about="file://home/hugo.marredo/Documents/personal/tg2/python3/ontologies/nep.owl">
+        <owl:imports rdf:resource="file:///home/hugo.marredo/Documents/personal/tg2/python3/ontologies/tlo.owl"/>
+        <rdfs:comment>An example mapping of ERAS-NEP CLIF axioms into OWL axioms using Manchester OWL syntax</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#comment -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- file://nepstring -->
+
+    <rdfs:Datatype rdf:about="file://nepstring">
+        <owl:equivalentClass rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </rdfs:Datatype>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#string -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- file://nepaccepted_by -->
+
+    <owl:ObjectProperty rdf:about="file://nepaccepted_by">
+        <rdfs:domain rdf:resource="file://nepNorm"/>
+        <rdfs:range rdf:resource="file://nepAgent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepaccommodates -->
+
+    <owl:ObjectProperty rdf:about="file://nepaccommodates">
+        <rdfs:domain rdf:resource="file://nepNorm"/>
+        <rdfs:range rdf:resource="file://nepEthicalPrinciple"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepactivates -->
+
+    <owl:ObjectProperty rdf:about="file://nepactivates">
+        <rdfs:domain rdf:resource="file://nepAgentAction"/>
+        <rdfs:range rdf:resource="file://nepDerogation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepapplies -->
+
+    <owl:ObjectProperty rdf:about="file://nepapplies">
+        <rdfs:domain rdf:resource="file://nepAgent"/>
+        <rdfs:range rdf:resource="file://nepAgentPlan"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepassigned_to -->
+
+    <owl:ObjectProperty rdf:about="file://nepassigned_to">
+        <rdfs:domain rdf:resource="file://nepAgentRole"/>
+        <rdfs:range rdf:resource="file://nepAgent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepauthorized_by -->
+
+    <owl:ObjectProperty rdf:about="file://nepauthorized_by">
+        <rdfs:domain rdf:resource="file://nepNorm"/>
+        <rdfs:range rdf:resource="file://nepAgent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepcategory -->
+
+    <owl:ObjectProperty rdf:about="file://nepcategory">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="file://nepNorm"/>
+        <rdfs:range rdf:resource="file://nepnorm_category"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepcaused_by -->
+
+    <owl:ObjectProperty rdf:about="file://nepcaused_by">
+        <rdfs:domain rdf:resource="file://nepEthicalDilemma"/>
+        <rdfs:range rdf:resource="file://nepNorm"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepconflicts_with -->
+
+    <owl:ObjectProperty rdf:about="file://nepconflicts_with">
+        <rdfs:domain rdf:resource="file://nepNorm"/>
+        <rdfs:range rdf:resource="file://nepNorm"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepconstrains_plans_for -->
+
+    <owl:ObjectProperty rdf:about="file://nepconstrains_plans_for">
+        <rdfs:domain rdf:resource="file://nepEthicalTheory"/>
+        <rdfs:range rdf:resource="file://nepSituationPlanRepertoire"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepcontains -->
+
+    <owl:ObjectProperty rdf:about="file://nepcontains">
+        <rdfs:domain rdf:resource="file://nepAgentPlan"/>
+        <rdfs:range rdf:resource="file://nepPlanAction"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepdeactivates -->
+
+    <owl:ObjectProperty rdf:about="file://nepdeactivates">
+        <rdfs:domain rdf:resource="file://nepAgentAction"/>
+        <rdfs:range rdf:resource="file://nepDerogation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepexecutes -->
+
+    <owl:ObjectProperty rdf:about="file://nepexecutes">
+        <rdfs:domain rdf:resource="file://nepAgent"/>
+        <rdfs:range rdf:resource="file://nepPlanAction"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepfeatures_described_in -->
+
+    <owl:ObjectProperty rdf:about="file://nepfeatures_described_in">
+        <rdfs:domain rdf:resource="file://nepSituation"/>
+        <rdfs:range rdf:resource="file://nepSituationPlanRepertoire"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nephas_as_goal -->
+
+    <owl:ObjectProperty rdf:about="file://nephas_as_goal">
+        <rdfs:domain rdf:resource="file://nepTaskAssignment"/>
+        <rdfs:range rdf:resource="file://nepSituation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepincludes -->
+
+    <owl:ObjectProperty rdf:about="file://nepincludes">
+        <rdfs:domain rdf:resource="file://nepSituationPlanRepertoire"/>
+        <rdfs:range rdf:resource="file://nepAgentPlan"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepinfluences_norm_applicability -->
+
+    <owl:ObjectProperty rdf:about="file://nepinfluences_norm_applicability">
+        <rdfs:domain rdf:resource="file://nepSocialCollection"/>
+        <rdfs:range rdf:resource="file://nepNorm"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepinitiates -->
+
+    <owl:ObjectProperty rdf:about="file://nepinitiates">
+        <rdfs:domain rdf:resource="file://nepAgent"/>
+        <rdfs:range rdf:resource="file://tlo#tloAgentCommunication"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepintends_to_realize -->
+
+    <owl:ObjectProperty rdf:about="file://nepintends_to_realize">
+        <rdfs:domain rdf:resource="file://nepAgent"/>
+        <rdfs:range rdf:resource="file://nepSituation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepis_implemented_by -->
+
+    <owl:ObjectProperty rdf:about="file://nepis_implemented_by">
+        <rdfs:domain rdf:resource="file://nepPlanAction"/>
+        <rdfs:range rdf:resource="file://nepAgentAction"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepis_involved_in -->
+
+    <owl:ObjectProperty rdf:about="file://nepis_involved_in">
+        <rdfs:domain rdf:resource="file://nepNorm"/>
+        <rdfs:range rdf:resource="file://nepSituation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepis_perceived_by -->
+
+    <owl:ObjectProperty rdf:about="file://nepis_perceived_by">
+        <rdfs:domain rdf:resource="file://nepEnvironment"/>
+        <rdfs:range rdf:resource="file://nepAgent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepis_perception_of -->
+
+    <owl:ObjectProperty rdf:about="file://nepis_perception_of">
+        <rdfs:domain rdf:resource="file://nepSituation"/>
+        <rdfs:range rdf:resource="file://nepEnvironment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepis_prescribed_by -->
+
+    <owl:ObjectProperty rdf:about="file://nepis_prescribed_by">
+        <owl:inverseOf rdf:resource="file://nepspecifies_norm_modality"/>
+        <rdfs:domain rdf:resource="file://nepNorm"/>
+        <rdfs:range rdf:resource="file://nepEthicalTheory"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepis_response_to -->
+
+    <owl:ObjectProperty rdf:about="file://nepis_response_to">
+        <rdfs:domain rdf:resource="file://nepAnswer"/>
+        <rdfs:range rdf:resource="file://nepQuery"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://neplogically_justifies -->
+
+    <owl:ObjectProperty rdf:about="file://neplogically_justifies">
+        <rdfs:domain rdf:resource="file://nepActionRationale"/>
+        <rdfs:range rdf:resource="file://nepPlanAction"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepprecedes -->
+
+    <owl:ObjectProperty rdf:about="file://nepprecedes">
+        <rdfs:domain rdf:resource="file://nepSituation"/>
+        <rdfs:range rdf:resource="file://nepSituation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepprescribes_context_for -->
+
+    <owl:ObjectProperty rdf:about="file://nepprescribes_context_for">
+        <rdfs:domain rdf:resource="file://nepSocialCollection"/>
+        <rdfs:range rdf:resource="file://nepNorm"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepprompts -->
+
+    <owl:ObjectProperty rdf:about="file://nepprompts">
+        <rdfs:domain rdf:resource="file://nepSituation"/>
+        <rdfs:range rdf:resource="file://tlo#tloAgentCommunication"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepranks_preferred_norm -->
+
+    <owl:ObjectProperty rdf:about="file://nepranks_preferred_norm">
+        <rdfs:domain rdf:resource="file://nepDilemmaMitigationPrinciple"/>
+        <rdfs:range rdf:resource="file://nepEthicalDilemma"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepreceives -->
+
+    <owl:ObjectProperty rdf:about="file://nepreceives">
+        <rdfs:domain rdf:resource="file://nepAgent"/>
+        <rdfs:range rdf:resource="file://tlo#tloAgentCommunication"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://neprecognizes -->
+
+    <owl:ObjectProperty rdf:about="file://neprecognizes">
+        <rdfs:domain rdf:resource="file://nepAgent"/>
+        <rdfs:range rdf:resource="file://nepSituation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepsatisfies -->
+
+    <owl:ObjectProperty rdf:about="file://nepsatisfies">
+        <rdfs:domain rdf:resource="file://nepAgentPlan"/>
+        <rdfs:range rdf:resource="file://nepNorm"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepselects_plans_from -->
+
+    <owl:ObjectProperty rdf:about="file://nepselects_plans_from">
+        <rdfs:domain rdf:resource="file://nepAgent"/>
+        <rdfs:range rdf:resource="file://nepSituationPlanRepertoire"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepspecifies_norm_modality -->
+
+    <owl:ObjectProperty rdf:about="file://nepspecifies_norm_modality">
+        <rdfs:domain rdf:resource="file://nepEthicalTheory"/>
+        <rdfs:range rdf:resource="file://nepNorm"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepstate -->
+
+    <owl:ObjectProperty rdf:about="file://nepstate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="file://nepNorm"/>
+        <rdfs:range rdf:resource="file://nepnorm_states"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepstipulates -->
+
+    <owl:ObjectProperty rdf:about="file://nepstipulates">
+        <rdfs:domain rdf:resource="file://nepAgentRole"/>
+        <rdfs:range rdf:resource="file://nepNorm"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepsubscribes_to -->
+
+    <owl:ObjectProperty rdf:about="file://nepsubscribes_to">
+        <rdfs:domain rdf:resource="file://nepAgentPlan"/>
+        <rdfs:range rdf:resource="file://nepEthicalTheory"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepsucceeds -->
+
+    <owl:ObjectProperty rdf:about="file://nepsucceeds">
+        <rdfs:domain rdf:resource="file://nepSituation"/>
+        <rdfs:range rdf:resource="file://nepSituation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://nepteam_type -->
+
+    <owl:ObjectProperty rdf:about="file://nepteam_type">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="file://nepTeam"/>
+        <rdfs:range rdf:resource="file://nepteam_types"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://neptemporarily_suspends -->
+
+    <owl:ObjectProperty rdf:about="file://neptemporarily_suspends">
+        <rdfs:domain rdf:resource="file://nepDerogation"/>
+        <rdfs:range rdf:resource="file://nepNorm"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- file://tlo#tloaffects -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tloaffects"/>
+    
+
+
+    <!-- file://tlo#tloenacts -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tloenacts"/>
+    
+
+
+    <!-- file://tlo#tlois_member_of -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tlois_member_of"/>
+    
+
+
+    <!-- file://tlo#tlorenders -->
+
+    <owl:ObjectProperty rdf:about="file://tlo#tlorenders"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- file://nepActionRationale -->
+
+    <owl:Class rdf:about="file://nepActionRationale">
+        <rdfs:subClassOf rdf:resource="file://tlo#tloMethod"/>
+    </owl:Class>
+    
+
+
+    <!-- file://nepAgent -->
+
+    <owl:Class rdf:about="file://nepAgent">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloAgent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://tlo#tloenacts"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://nepAgentRole"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://tlo#tlois_member_of"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://nepSocialCollection"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://nepAgentAction -->
+
+    <owl:Class rdf:about="file://nepAgentAction">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloProcess"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://tlo#tloaffects"/>
+                        <owl:someValuesFrom rdf:resource="file://nepEnvironment"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://nepAgentPlan -->
+
+    <owl:Class rdf:about="file://nepAgentPlan">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloInformationArtifact"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://nepsubscribes_to"/>
+                        <owl:someValuesFrom rdf:resource="file://nepEthicalTheory"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://tlo#tlorenders"/>
+                        <owl:someValuesFrom rdf:resource="file://tlo#tloPlan"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://nepcontains"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://nepPlanAction"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://nepsatisfies"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://nepNorm"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://nepAgentRole -->
+
+    <owl:Class rdf:about="file://nepAgentRole">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloRole"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://nepassigned_to"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://nepAgent"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://nepstipulates"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://nepNorm"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://nepAnswer -->
+
+    <owl:Class rdf:about="file://nepAnswer">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloAgentCommunication"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://nepis_response_to"/>
+                        <owl:someValuesFrom rdf:resource="file://nepQuery"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="file://nepinitiates"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="file://nepAgent"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="file://nepreceives"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="file://nepAgent"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://nepCommunity -->
+
+    <owl:Class rdf:about="file://nepCommunity">
+        <rdfs:subClassOf rdf:resource="file://nepSocialCollection"/>
+    </owl:Class>
+    
+
+
+    <!-- file://nepCompany -->
+
+    <owl:Class rdf:about="file://nepCompany">
+        <rdfs:subClassOf rdf:resource="file://nepSocialCollection"/>
+    </owl:Class>
+    
+
+
+    <!-- file://nepConsequentialistNorm -->
+
+    <owl:Class rdf:about="file://nepConsequentialistNorm">
+        <rdfs:subClassOf rdf:resource="file://nepNorm"/>
+    </owl:Class>
+    
+
+
+    <!-- file://nepDeontologicalNorm -->
+
+    <owl:Class rdf:about="file://nepDeontologicalNorm">
+        <rdfs:subClassOf rdf:resource="file://nepNorm"/>
+    </owl:Class>
+    
+
+
+    <!-- file://nepDepartment -->
+
+    <owl:Class rdf:about="file://nepDepartment">
+        <rdfs:subClassOf rdf:resource="file://nepSocialCollection"/>
+    </owl:Class>
+    
+
+
+    <!-- file://nepDerogation -->
+
+    <owl:Class rdf:about="file://nepDerogation">
+        <rdfs:subClassOf rdf:resource="file://tlo#tloProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- file://nepDilemmaMitigationPrinciple -->
+
+    <owl:Class rdf:about="file://nepDilemmaMitigationPrinciple">
+        <rdfs:subClassOf rdf:resource="file://tlo#tloMethod"/>
+    </owl:Class>
+    
+
+
+    <!-- file://nepEnumDataTypes -->
+
+    <owl:Class rdf:about="file://nepEnumDataTypes">
+        <rdfs:subClassOf rdf:resource="file://tlo#tloEnumDataTypes"/>
+    </owl:Class>
+    
+
+
+    <!-- file://nepEnvironment -->
+
+    <owl:Class rdf:about="file://nepEnvironment">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloContinuant"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://nepis_perceived_by"/>
+                        <owl:someValuesFrom rdf:resource="file://nepAgent"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="file://nepis_perception_of"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://nepSituation"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://nepEthicalDilemma -->
+
+    <owl:Class rdf:about="file://nepEthicalDilemma">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloSituation"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://nepcaused_by"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://nepNorm"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://nepEthicalPrinciple -->
+
+    <owl:Class rdf:about="file://nepEthicalPrinciple">
+        <rdfs:subClassOf rdf:resource="file://tlo#tloMethod"/>
+    </owl:Class>
+    
+
+
+    <!-- file://nepEthicalTheory -->
+
+    <owl:Class rdf:about="file://nepEthicalTheory">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloMethod"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://nepspecifies_norm_modality"/>
+                        <owl:someValuesFrom rdf:resource="file://nepNorm"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://nepExplanation -->
+
+    <owl:Class rdf:about="file://nepExplanation">
+        <rdfs:subClassOf rdf:resource="file://tlo#tloAgentCommunication"/>
+    </owl:Class>
+    
+
+
+    <!-- file://nepGovernment -->
+
+    <owl:Class rdf:about="file://nepGovernment">
+        <rdfs:subClassOf rdf:resource="file://nepSocialCollection"/>
+    </owl:Class>
+    
+
+
+    <!-- file://nepNorm -->
+
+    <owl:Class rdf:about="file://nepNorm">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloMethod"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://nepaccommodates"/>
+                        <owl:someValuesFrom rdf:resource="file://nepEthicalPrinciple"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://nepaccepted_by"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://nepAgent"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://nepauthorized_by"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://nepAgent"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://nepis_involved_in"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://nepSituation"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://nepis_prescribed_by"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://nepEthicalTheory"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://nepObligation -->
+
+    <owl:Class rdf:about="file://nepObligation">
+        <rdfs:subClassOf rdf:resource="file://nepDeontologicalNorm"/>
+    </owl:Class>
+    
+
+
+    <!-- file://nepOrganization -->
+
+    <owl:Class rdf:about="file://nepOrganization">
+        <rdfs:subClassOf rdf:resource="file://nepSocialCollection"/>
+    </owl:Class>
+    
+
+
+    <!-- file://nepPermission -->
+
+    <owl:Class rdf:about="file://nepPermission">
+        <rdfs:subClassOf rdf:resource="file://nepDeontologicalNorm"/>
+    </owl:Class>
+    
+
+
+    <!-- file://nepPlanAction -->
+
+    <owl:Class rdf:about="file://nepPlanAction">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloInformationArtifact"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://nepis_implemented_by"/>
+                        <owl:someValuesFrom rdf:resource="file://nepAgentAction"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://tlo#tlorenders"/>
+                        <owl:someValuesFrom rdf:resource="file://tlo#tloMethod"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://nepProhibition -->
+
+    <owl:Class rdf:about="file://nepProhibition">
+        <rdfs:subClassOf rdf:resource="file://nepDeontologicalNorm"/>
+    </owl:Class>
+    
+
+
+    <!-- file://nepQuery -->
+
+    <owl:Class rdf:about="file://nepQuery">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloAgentCommunication"/>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="file://nepinitiates"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="file://nepAgent"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="file://nepreceives"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="file://nepAgent"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://nepRobot -->
+
+    <owl:Class rdf:about="file://nepRobot">
+        <rdfs:subClassOf rdf:resource="file://nepAgent"/>
+    </owl:Class>
+    
+
+
+    <!-- file://nepSituation -->
+
+    <owl:Class rdf:about="file://nepSituation">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloSituation"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://nepis_perception_of"/>
+                        <owl:someValuesFrom rdf:resource="file://nepEnvironment"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="file://neprecognizes"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="file://nepAgent"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://nepSituationPlanRepertoire -->
+
+    <owl:Class rdf:about="file://nepSituationPlanRepertoire">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloInformationArtifact"/>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="file://nepconstrains_plans_for"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="file://nepEthicalTheory"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://nepincludes"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://nepAgentPlan"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="file://nepfeatures_described_in"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://nepSituation"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://nepSocialCollection -->
+
+    <owl:Class rdf:about="file://nepSocialCollection">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloCollective"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://nepinfluences_norm_applicability"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://nepNorm"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://nepTaskAssignment -->
+
+    <owl:Class rdf:about="file://nepTaskAssignment">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="file://tlo#tloAgentCommunication"/>
+                    <owl:Restriction>
+                        <owl:onProperty>
+                            <rdf:Description>
+                                <owl:inverseOf rdf:resource="file://nepreceives"/>
+                            </rdf:Description>
+                        </owl:onProperty>
+                        <owl:someValuesFrom rdf:resource="file://nepAgent"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="file://nephas_as_goal"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                        <owl:onClass rdf:resource="file://nepSituation"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- file://nepTeam -->
+
+    <owl:Class rdf:about="file://nepTeam">
+        <rdfs:subClassOf rdf:resource="file://nepSocialCollection"/>
+    </owl:Class>
+    
+
+
+    <!-- file://nepVirtuousNorm -->
+
+    <owl:Class rdf:about="file://nepVirtuousNorm">
+        <rdfs:subClassOf rdf:resource="file://nepNorm"/>
+    </owl:Class>
+    
+
+
+    <!-- file://nepautonomous_action_principles -->
+
+    <owl:Class rdf:about="file://nepautonomous_action_principles">
+        <rdfs:subClassOf rdf:resource="file://nepEnumDataTypes"/>
+        <rdfs:comment>Autonomous Action Principles</rdfs:comment>
+        <rdfs:comment>{ generalization_principle, principle_of_autonomy, principle_of_informed_consent, interference_principle }</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- file://nepdilemma_mitigation_principles -->
+
+    <owl:Class rdf:about="file://nepdilemma_mitigation_principles">
+        <rdfs:subClassOf rdf:resource="file://nepEnumDataTypes"/>
+        <rdfs:comment>Dilemma Mitigation Principles</rdfs:comment>
+        <rdfs:comment>{ principle_of_double_effect, principle_of_triple_effect }</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- file://nepethical_principles -->
+
+    <owl:Class rdf:about="file://nepethical_principles">
+        <rdfs:subClassOf rdf:resource="file://nepEnumDataTypes"/>
+        <rdfs:comment>Ethical Principle Examples</rdfs:comment>
+        <rdfs:comment>{beneficence, nonmaleficence, justice, autonomy, fidelity, veracity, fairness, civility, respect}</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- file://nepethical_theories -->
+
+    <owl:Class rdf:about="file://nepethical_theories">
+        <rdfs:subClassOf rdf:resource="file://nepEnumDataTypes"/>
+        <rdfs:comment>Ethical Theory Examples</rdfs:comment>
+        <rdfs:comment>{virtuous, deontological, consequentialist, composite, divine_command, Buddhists_ethics, ..}</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- file://nepnorm_category -->
+
+    <owl:Class rdf:about="file://nepnorm_category">
+        <rdfs:subClassOf rdf:resource="file://nepEnumDataTypes"/>
+        <rdfs:comment>Norm Categories</rdfs:comment>
+        <rdfs:comment>{ legal_norm, ethial_norm }</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- file://nepnorm_states -->
+
+    <owl:Class rdf:about="file://nepnorm_states">
+        <rdfs:subClassOf rdf:resource="file://nepEnumDataTypes"/>
+        <rdfs:comment>Norm States</rdfs:comment>
+        <rdfs:comment>{ activated, fulfilled, violated, expired, suspended, not_applicable }</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- file://nepteam_types -->
+
+    <owl:Class rdf:about="file://nepteam_types">
+        <rdfs:subClassOf rdf:resource="file://nepEnumDataTypes"/>
+        <rdfs:comment>Team Types</rdfs:comment>
+        <rdfs:comment>{ self_directed_MAS_agents, human_directed }</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- file://tlo#tloAgent -->
+
+    <owl:Class rdf:about="file://tlo#tloAgent"/>
+    
+
+
+    <!-- file://tlo#tloAgentCommunication -->
+
+    <owl:Class rdf:about="file://tlo#tloAgentCommunication"/>
+    
+
+
+    <!-- file://tlo#tloCollective -->
+
+    <owl:Class rdf:about="file://tlo#tloCollective"/>
+    
+
+
+    <!-- file://tlo#tloContinuant -->
+
+    <owl:Class rdf:about="file://tlo#tloContinuant"/>
+    
+
+
+    <!-- file://tlo#tloEnumDataTypes -->
+
+    <owl:Class rdf:about="file://tlo#tloEnumDataTypes"/>
+    
+
+
+    <!-- file://tlo#tloInformationArtifact -->
+
+    <owl:Class rdf:about="file://tlo#tloInformationArtifact"/>
+    
+
+
+    <!-- file://tlo#tloMethod -->
+
+    <owl:Class rdf:about="file://tlo#tloMethod"/>
+    
+
+
+    <!-- file://tlo#tloPlan -->
+
+    <owl:Class rdf:about="file://tlo#tloPlan"/>
+    
+
+
+    <!-- file://tlo#tloProcess -->
+
+    <owl:Class rdf:about="file://tlo#tloProcess"/>
+    
+
+
+    <!-- file://tlo#tloRole -->
+
+    <owl:Class rdf:about="file://tlo#tloRole"/>
+    
+
+
+    <!-- file://tlo#tloSituation -->
+
+    <owl:Class rdf:about="file://tlo#tloSituation"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- file://nepactivated -->
+
+    <owl:NamedIndividual rdf:about="file://nepactivated">
+        <rdf:type rdf:resource="file://nepnorm_states"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file://nepethical_norm -->
+
+    <owl:NamedIndividual rdf:about="file://nepethical_norm">
+        <rdf:type rdf:resource="file://nepnorm_category"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file://nepexpired -->
+
+    <owl:NamedIndividual rdf:about="file://nepexpired">
+        <rdf:type rdf:resource="file://nepnorm_states"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file://nepfulfilled -->
+
+    <owl:NamedIndividual rdf:about="file://nepfulfilled">
+        <rdf:type rdf:resource="file://nepnorm_states"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file://nephuman_directed -->
+
+    <owl:NamedIndividual rdf:about="file://nephuman_directed">
+        <rdf:type rdf:resource="file://nepteam_types"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file://neplegal_norm -->
+
+    <owl:NamedIndividual rdf:about="file://neplegal_norm">
+        <rdf:type rdf:resource="file://nepnorm_category"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file://nepnot_applicable -->
+
+    <owl:NamedIndividual rdf:about="file://nepnot_applicable">
+        <rdf:type rdf:resource="file://nepnorm_states"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file://nepself_directed_team -->
+
+    <owl:NamedIndividual rdf:about="file://nepself_directed_team">
+        <rdf:type rdf:resource="file://nepteam_types"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file://nepsuspended -->
+
+    <owl:NamedIndividual rdf:about="file://nepsuspended">
+        <rdf:type rdf:resource="file://nepnorm_states"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- file://nepviolated -->
+
+    <owl:NamedIndividual rdf:about="file://nepviolated">
+        <rdf:type rdf:resource="file://nepnorm_states"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="file://nepActionRationale"/>
+            <rdf:Description rdf:about="file://nepDilemmaMitigationPrinciple"/>
+            <rdf:Description rdf:about="file://nepEthicalPrinciple"/>
+            <rdf:Description rdf:about="file://nepEthicalTheory"/>
+            <rdf:Description rdf:about="file://nepNorm"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="file://nepAgentPlan"/>
+            <rdf:Description rdf:about="file://nepPlanAction"/>
+            <rdf:Description rdf:about="file://nepSituationPlanRepertoire"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="file://nepCommunity"/>
+            <rdf:Description rdf:about="file://nepCompany"/>
+            <rdf:Description rdf:about="file://nepDepartment"/>
+            <rdf:Description rdf:about="file://nepGovernment"/>
+            <rdf:Description rdf:about="file://nepOrganization"/>
+            <rdf:Description rdf:about="file://nepTeam"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="file://nepConsequentialistNorm"/>
+            <rdf:Description rdf:about="file://nepDeontologicalNorm"/>
+            <rdf:Description rdf:about="file://nepVirtuousNorm"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="file://nepObligation"/>
+            <rdf:Description rdf:about="file://nepPermission"/>
+            <rdf:Description rdf:about="file://nepProhibition"/>
+        </owl:members>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="urn:swrl:var#a">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#ap">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#pa">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#e">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#s">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#aa">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#r">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#ac">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#n">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#d">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="file://nepAgent"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="file://nepAgentPlan"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#ap"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="file://nepPlanAction"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#pa"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="file://nepAgentAction"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl:var#ap"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                        <swrl:classPredicate rdf:resource="file://nepEnvironment"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                <swrl:classPredicate rdf:resource="file://nepSituation"/>
+                                                                <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                <rdf:first>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                        <swrl:propertyPredicate rdf:resource="file://nepis_perception_of"/>
+                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                                                                        <swrl:argument2 rdf:resource="urn:swrl:var#e"/>
+                                                                    </rdf:Description>
+                                                                </rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                        <rdf:first>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                <swrl:propertyPredicate rdf:resource="file://nepis_perceived_by"/>
+                                                                                <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                                                                                <swrl:argument2 rdf:resource="urn:swrl:var#a"/>
+                                                                            </rdf:Description>
+                                                                        </rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                <rdf:first>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                        <swrl:propertyPredicate rdf:resource="file://nepintends_to_realize"/>
+                                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                                                                                        <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                                                                                    </rdf:Description>
+                                                                                </rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                        <rdf:first>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                <swrl:propertyPredicate rdf:resource="file://nepcontains"/>
+                                                                                                <swrl:argument1 rdf:resource="urn:swrl:var#ap"/>
+                                                                                                <swrl:argument2 rdf:resource="urn:swrl:var#pa"/>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:first>
+                                                                                        <rdf:rest>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                <rdf:first>
+                                                                                                    <rdf:Description>
+                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                        <swrl:propertyPredicate rdf:resource="file://nepis_implemented_by"/>
+                                                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#pa"/>
+                                                                                                        <swrl:argument2 rdf:resource="urn:swrl:var#aa"/>
+                                                                                                    </rdf:Description>
+                                                                                                </rdf:first>
+                                                                                                <rdf:rest>
+                                                                                                    <rdf:Description>
+                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                        <rdf:first>
+                                                                                                            <rdf:Description>
+                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                                <swrl:propertyPredicate rdf:resource="file://tlo#tloaffects"/>
+                                                                                                                <swrl:argument1 rdf:resource="urn:swrl:var#aa"/>
+                                                                                                                <swrl:argument2 rdf:resource="urn:swrl:var#e"/>
+                                                                                                            </rdf:Description>
+                                                                                                        </rdf:first>
+                                                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                                    </rdf:Description>
+                                                                                                </rdf:rest>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:rest>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="file://nepapplies"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#ap"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="file://nepexecutes"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#pa"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="file://nepAgent"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="file://nepAgentPlan"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#ap"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="file://nepPlanAction"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#pa"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="file://nepAgentAction"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl:var#ap"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                        <swrl:classPredicate rdf:resource="file://nepEnvironment"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                <swrl:classPredicate rdf:resource="file://nepSituation"/>
+                                                                <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                <rdf:first>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                        <swrl:propertyPredicate rdf:resource="file://nepis_perception_of"/>
+                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                                                                        <swrl:argument2 rdf:resource="urn:swrl:var#e"/>
+                                                                    </rdf:Description>
+                                                                </rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                        <rdf:first>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                <swrl:propertyPredicate rdf:resource="file://nepis_perceived_by"/>
+                                                                                <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                                                                                <swrl:argument2 rdf:resource="urn:swrl:var#a"/>
+                                                                            </rdf:Description>
+                                                                        </rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                <rdf:first>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                        <swrl:propertyPredicate rdf:resource="file://neprecognizes"/>
+                                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                                                                                        <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                                                                                    </rdf:Description>
+                                                                                </rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                        <rdf:first>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                <swrl:propertyPredicate rdf:resource="file://nepcontains"/>
+                                                                                                <swrl:argument1 rdf:resource="urn:swrl:var#ap"/>
+                                                                                                <swrl:argument2 rdf:resource="urn:swrl:var#pa"/>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:first>
+                                                                                        <rdf:rest>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                <rdf:first>
+                                                                                                    <rdf:Description>
+                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                        <swrl:propertyPredicate rdf:resource="file://nepis_implemented_by"/>
+                                                                                                        <swrl:argument1 rdf:resource="urn:swrl:var#pa"/>
+                                                                                                        <swrl:argument2 rdf:resource="urn:swrl:var#aa"/>
+                                                                                                    </rdf:Description>
+                                                                                                </rdf:first>
+                                                                                                <rdf:rest>
+                                                                                                    <rdf:Description>
+                                                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                                                        <rdf:first>
+                                                                                                            <rdf:Description>
+                                                                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                                                                <swrl:propertyPredicate rdf:resource="file://tlo#tloaffects"/>
+                                                                                                                <swrl:argument1 rdf:resource="urn:swrl:var#aa"/>
+                                                                                                                <swrl:argument2 rdf:resource="urn:swrl:var#e"/>
+                                                                                                            </rdf:Description>
+                                                                                                        </rdf:first>
+                                                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                                    </rdf:Description>
+                                                                                                </rdf:rest>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:rest>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="file://nepapplies"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#ap"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="file://nepexecutes"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#pa"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="file://nepAgentRole"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="file://nepAgent"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="file://tlo#tloenacts"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#r"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="file://nepassigned_to"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#a"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="file://nepSituationPlanRepertoire"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="file://nepSituation"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="file://nepAgent"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="file://nepfeatures_described_in"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                                                <swrl:argument2 rdf:resource="urn:swrl:var#r"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="file://nepintends_to_realize"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                                                        <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="file://nepselects_plans_from"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="file://nepSituationPlanRepertoire"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="file://nepSituation"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="file://nepAgent"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="file://nepfeatures_described_in"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                                                <swrl:argument2 rdf:resource="urn:swrl:var#r"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="file://neprecognizes"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                                                        <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="file://nepselects_plans_from"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="file://nepSituation"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="file://nepAgent"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="file://neprecognizes"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="file://tlo#tloAgentCommunication"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl:var#ac"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="file://nepprompts"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                                                        <swrl:argument2 rdf:resource="urn:swrl:var#ac"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="file://nepinitiates"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#ac"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="file://nepNorm"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#n"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="file://nepDerogation"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="file://nepAgentAction"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="file://nepactivates"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                                                <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="file://neptemporarily_suspends"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
+                                                        <swrl:argument2 rdf:resource="urn:swrl:var#n"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="file://nepstate"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#n"/>
+                        <swrl:argument2 rdf:resource="file://nepsuspended"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="file://nepNorm"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#n"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="file://nepstate"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#n"/>
+                                <swrl:argument2 rdf:resource="file://nepsuspended"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="file://nepDerogation"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="file://nepAgentAction"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="file://nepdeactivates"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                                                        <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="file://nepstate"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#n"/>
+                        <swrl:argument2 rdf:resource="file://nepactivated"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
