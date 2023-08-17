@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="file://home/hugo.marredo/Documents/personal/tg2/python3/ontologies/tlo.owl#"
-     xml:base="file://home/hugo.marredo/Documents/personal/tg2/python3/ontologies/tlo.owl"
+<rdf:RDF xmlns="file://./ontologies/tlo.owl#"
+     xml:base="file://./ontologies/tlo.owl"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:nep="file://nep"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -9,7 +9,7 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="file://home/hugo.marredo/Documents/personal/tg2/python3/ontologies/tlo.owl">
+    <owl:Ontology rdf:about="file://./ontologies/tlo.owl">
         <rdfs:comment>An example mapping of ERAS-TLO CLIF axioms into OWL axioms using Manchester OWL syntax</rdfs:comment>
     </owl:Ontology>
     

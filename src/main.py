@@ -9,7 +9,7 @@ from cli.cli import Cli
 import world
 import navigator
 
-OWL_FILE_LOCATION = "/home/hugo.marredo/Documents/personal/tg2/python3/ontologies/"
+OWL_FILE_LOCATION = "./ontologies/"
 OWL_EVM_FILE = "evm.owl"
 
 ontology = None

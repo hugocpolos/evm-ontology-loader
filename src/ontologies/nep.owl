@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="file://home/hugo.marredo/Documents/personal/tg2/python3/ontologies/nep.owl#"
-     xml:base="file://home/hugo.marredo/Documents/personal/tg2/python3/ontologies/nep.owl"
+<rdf:RDF xmlns="file://./ontologies/nep.owl#"
+     xml:base="file://./ontologies/nep.owl"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:nep="file://nep"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -11,8 +11,8 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#">
-    <owl:Ontology rdf:about="file://home/hugo.marredo/Documents/personal/tg2/python3/ontologies/nep.owl">
-        <owl:imports rdf:resource="file:///home/hugo.marredo/Documents/personal/tg2/python3/ontologies/tlo.owl"/>
+    <owl:Ontology rdf:about="file://./ontologies/nep.owl">
+        <owl:imports rdf:resource="file://./ontologies/tlo.owl"/>
         <rdfs:comment>An example mapping of ERAS-NEP CLIF axioms into OWL axioms using Manchester OWL syntax</rdfs:comment>
     </owl:Ontology>
     

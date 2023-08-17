@@ -7,7 +7,7 @@ name = "pypi"
 owlready2 = "*"
 pylint = "*"
 doq = "*"
-docstring-generator = "*"
+# docstring-generator = "*"
 
 [dev-packages]
 
