@@ -1,7 +1,7 @@
 class Factory:
     evmEventCausation = None
     evmResponsibilityAscription = None
-    evmAscriptionJustelification = None
+    evmAscriptionJustification = None
     evmGroundsForAscription = None
     evmAgentAccountability = None
     evmNormViolationIncident = None
@@ -100,7 +100,7 @@ class Factory:
         elif name == 'evmResponsibilityAscription':
             self.evmResponsibilityAscription = cls
         elif name == 'evmAscriptionJustification':
-            self.evmAscriptionJustelification = cls
+            self.evmAscriptionJustification = cls
         elif name == 'evmGroundsForAscription':
             self.evmGroundsForAscription = cls
         elif name == 'evmAgentAccountability':
@@ -276,7 +276,7 @@ class Factory:
         a = dict(
             evmEventCausation=self.evmEventCausation,
             evmResponsibilityAscription=self.evmResponsibilityAscription,
-            evmAscriptionJustification=self.evmAscriptionJustelification,
+            evmAscriptionJustification=self.evmAscriptionJustification,
             evmGroundsForAscription=self.evmGroundsForAscription,
             evmAgentAccountability=self.evmAgentAccountability,
             evmNormViolationIncident=self.evmNormViolationIncident,

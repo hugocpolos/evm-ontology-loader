@@ -7,7 +7,8 @@
        "This program helps to visualize and analyze an ethical violation management ontology and",
        "its individuals.",
        "",
-       "Available commands, enter 'help <command> for further help:",
+       "List of all available commands:",
+       "enter 'help <command> for further help",
        "exit",
        "follow",
        "ifollow",
@@ -66,12 +67,14 @@
    "OUT_OF_RANGE": [
        "'{field}' #{index} is out of range"
    ],
-
+   "SEARCH_NOT_FOUND": [
+       "relation between the individual '{individual}' and a individual with class '{class_name}' was not found."
+   ],
    "SEARCH_OPTIONS":
    [
     "evmEventCausation",
     "evmResponsibilityAscription",
-    "evmAscriptionJustelification",
+    "evmAscriptionJustification",
     "evmGroundsForAscription",
     "evmAgentAccountability",
     "evmNormViolationIncident",

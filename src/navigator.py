@@ -29,10 +29,16 @@ class OntologyNavigator:
             for source, p in inv_p:
                 print(f"\t\t{source} {p}")
 
-    def get_individual_by_name(self, name, strict=False):
+    def search_individual_by_name(self, name, strict=False):
         name = name if strict else f'*{name}*'
         search_result = self.__onto__.search(iri=name)
         return search_result
+
+    def get_individual_by_name(self, name):
+        for i in self.all_individuals:
+            if i.name == name:
+                return i
+        return None
 
     def get_class_by_name(self, name, strict=False):
         possible_classes = list()
@@ -93,3 +99,65 @@ class OntologyNavigator:
 
     def get_inverse_property_of_individual_by_index(self, individual, index):
         return self.get_all_inverse_properties_of_an_individual(individual)[index]
+
+    def deep_search_class_from_individual(self, individual, target_class, ignore_list):
+        original_individual = individual
+        previous_visited = list()
+        return self._recursive_deep_search_class_from_individual(original_individual, target_class,
+                                                                 previous_visited, ignore_list)
+
+    def _recursive_deep_search_class_from_individual(self, individual, target_class, visited_list,
+                                                     ignore_list):
+
+        # print(f"search debug: \tindividual: {individual.name}")
+
+        if individual not in ignore_list and target_class in [x.name for x in individual.is_a]:
+            return individual
+
+        if individual in visited_list:
+            return None
+
+        visited_list.append(individual)
+
+        _tmp = self.get_all_properties_relations_of_an_individual(individual)
+
+        for prop in _tmp:
+            for relation in _tmp[prop]:
+                next_hop = self._recursive_deep_search_class_from_individual(relation[1],
+                                                                             target_class,
+                                                                             visited_list,
+                                                                             ignore_list)
+                if next_hop:
+                    return (relation[0], prop, next_hop)
+
+    def deep_inverse_search_class_from_individual(self, individual, target_class, ignore_list):
+        original_individual = individual
+        previous_visited = list()
+        return self._recursive_inverse_deep_search_class_from_individual(original_individual,
+                                                                         target_class,
+                                                                         previous_visited,
+                                                                         ignore_list)
+
+    def _recursive_inverse_deep_search_class_from_individual(self, individual, target_class,
+                                                             visited_list, ignore_list):
+
+        # print(f"search debug: \tindividual: {individual.name}")
+
+        if individual not in ignore_list and target_class in [x.name for x in individual.is_a]:
+            return individual
+
+        if individual in visited_list:
+            return None
+
+        visited_list.append(individual)
+
+        _tmp = self.get_all_inverse_properties_of_an_individual(individual)
+
+        for relation in _tmp:
+            next_hop = self._recursive_inverse_deep_search_class_from_individual(
+                relation[0],
+                target_class,
+                visited_list,
+                ignore_list)
+            if next_hop:
+                return (individual, relation[1], next_hop)

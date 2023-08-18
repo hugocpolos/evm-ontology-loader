@@ -4,7 +4,7 @@ from evm_instances import EvmInstances
 class MyOntologyReader:
     evmEventCausation_instances = None
     evmResponsibilityAscription_instances = None
-    evmAscriptionJustelification_instances = None
+    evmAscriptionJustification_instances = None
     evmGroundsForAscription_instances = None
     evmAgentAccountability_instances = None
     evmNormViolationIncident_instances = None
@@ -32,7 +32,7 @@ class MyOntologyReader:
         elif name == 'evmResponsibilityAscription':
             self.evmResponsibilityAscription_instances = EvmInstances(cls)
         elif name == 'evmAscriptionJustification':
-            self.evmAscriptionJustelification_instances = EvmInstances(cls)
+            self.evmAscriptionJustification_instances = EvmInstances(cls)
         elif name == 'evmGroundsForAscription':
             self.evmGroundsForAscription_instances = EvmInstances(cls)
         elif name == 'evmAgentAccountability':

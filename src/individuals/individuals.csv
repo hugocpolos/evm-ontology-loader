@@ -1,9 +1,11 @@
 CLASS,INDIVIDUAL_NAME
-nepRobot,robot
+nepRobot,"robot A"
+nepRobot,"robot B"
 nepNorm,"Not allowed to touch the walls"
 nepNorm,"Should avoid the red ball"
 evmNormViolation,"hit the wall"
 evmNormViolation,"spot the red ball"
 evmEthicalBehaviorMonitor,"monitor 1"
-evmResponsibilityAscription,"responsibility ascription 1"
-evmResponsibilityAscription,"responsibility ascription 2"
+evmResponsibilityAscription,"robot A responsibility ascription"
+evmAscriptionJustification,"robot A ascription justification"
+evmLiabilitySanction,"liability sanction for robot A"

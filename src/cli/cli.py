@@ -13,6 +13,8 @@ class commands(Enum):
     iproperties_ = ['iproperties']
     follow_ = ['follow']
     ifollow_ = ['ifollow']
+    dsearch_ = ['dsearch']
+    isearch_ = ['isearch']
     search_ = ['search']
     show_ = ['show']
     exit_ = ['exit']
@@ -24,6 +26,8 @@ def get_a_selector_from_a_list(lst: list) -> str:
 
 
 class Cli():
+    _select_autocomplete_list = list()
+
     def __init__(self, controller=None, configuration=None):
         readline.parse_and_bind("tab: complete")
         readline.set_completer(self._autocompleter)
@@ -31,6 +35,13 @@ class Cli():
         self._controller = controller
         self._set_ps1()
         self._config = configuration if configuration else self._load_default_configuration()
+        self._select_autocomplete_list = self._fill_select_autocomplete_list()
+
+    def _fill_select_autocomplete_list(self):
+        if not self._controller:
+            return list()
+        return_list = self._controller.get_all_individuals()
+        return [x.name for x in return_list]
 
     def _autocompleter(self, text, state):
         options = list(x for x in itertools.chain.from_iterable(x.value for x in commands) if
@@ -38,8 +49,10 @@ class Cli():
 
         buffer = readline.get_line_buffer()
 
-        if buffer.startswith('search'):
+        if buffer.startswith('search') or buffer.startswith('isearch') or buffer.startswith('dsearch'):
             options = list(x for x in self._config.get("SEARCH_OPTIONS") if x.startswith(text))
+        elif buffer.startswith('select'):
+            options = list(x for x in self._select_autocomplete_list if x.startswith(text))
 
         if state < len(options):
             return options[state]
@@ -77,6 +90,8 @@ class Cli():
             commands.iproperties_: self._iproperties_help_message,
             commands.follow_: self._follow_help_message,
             commands.ifollow_: self._ifollow_help_message,
+            commands.dsearch_: self._dsearch_help_message,
+            commands.isearch_: self._isearch_help_message,
             commands.search_: self._search_help_message,
             commands.show_: self._show_help_message,
             commands.exit_: self._exit_help_message,
@@ -104,6 +119,12 @@ class Cli():
     def _ifollow_help_message(self):
         self._print_message_from_cli_config('IFOLLOW_HELP_MESSAGE')
 
+    def _dsearch_help_message(self):
+        self._print_message_from_cli_config('DSEARCH_HELP_MESSAGE')
+
+    def _isearch_help_message(self):
+        self._print_message_from_cli_config('ISEARCH_HELP_MESSAGE')
+
     def _search_help_message(self):
         self._print_message_from_cli_config('SEARCH_HELP_MESSAGE')
 
@@ -122,6 +143,10 @@ class Cli():
     def _out_of_range(self, field, index):
         self._print_message_from_cli_config('OUT_OF_RANGE', field=field, index=index)
 
+    def _search_not_found(self, individual, class_name):
+        self._print_message_from_cli_config('SEARCH_NOT_FOUND', individual=individual,
+                                            class_name=class_name)
+
     def _list(self, *args):
         res = ""
         list_individual_format = "\t({class_name}) {individual_name}"
@@ -130,23 +155,38 @@ class Cli():
             res = get_a_selector_from_a_list(list_individual_format.format(class_name=' / '.join(
                 z.name for z in x.is_instance_of),
                 individual_name=x) for x in self._controller.get_all_individuals())
+        print("[#id]\t(Class) individual_name")
         print(res)
 
     def _select(self, *args):
-        if len(args) != 1:
+        if not self._controller:
+            return
+
+        if len(args) == 0:
             return self._select_help_message()
 
+        if len(args) == 1 and args[0].isnumeric():
+            return self._select_by_index(args[0])
+
+        _s = ' '.join([*args])
+        if (ind := self._controller.get_individual_by_name(name=_s)):
+            self._selected_individual = ind
+            self._set_ps1(self._selected_individual)
+            return
+
+        return self._out_of_range('individual', *args)
+
+    def _select_by_index(self, index_s):
         try:
-            index = int(args[0])
+            index = int(index_s)
             assert index >= 0
         except (ValueError, AssertionError):
             return self._select_help_message()
 
-        if self._controller:
-            try:
-                self._selected_individual = self._controller.get_individual_by_index(index)
-            except IndexError:
-                return self._out_of_range('individual', index)
+        try:
+            self._selected_individual = self._controller.get_individual_by_index(index)
+        except IndexError:
+            return self._out_of_range('individual', index)
         self._set_ps1(self._selected_individual)
 
     def _unselect(self, *args):
@@ -231,12 +271,112 @@ class Cli():
         except IndexError:
             self._out_of_range('inverse property', index)
 
+    def _get_individual_from_dsearch_result(self, result):
+        if type(result) == tuple:
+            return self._get_individual_from_dsearch_result(result[2])
+
+        return result
+
+    def _get_textual_output_from_dsearch_result(self, result):
+        if type(result) == tuple:
+            next_hop = self._get_textual_output_from_dsearch_result(result[2])
+            return f"{result[0]} -> {result[1]} -> {next_hop}"
+
+        return result
+
+    def _dsearch(self, *args, quiet=False):
+        if not self._selected_individual:
+            if not quiet:
+                return self._no_selected_individual()
+            return
+
+        if len(args) != 1:
+            if not quiet:
+                return self._dsearch_help_message()
+            return
+
+        if not self._controller:
+            return
+
+        target_class = args[0]
+        if target_class not in self._config.get("SEARCH_OPTIONS"):
+            if not quiet:
+                print(f"{target_class} is not a valid searchable class")
+            return
+
+        already_found = list()
+        dsearch_result = list()
+        while (result :=
+                self._controller.deep_search_class_from_individual(self._selected_individual,
+                                                                   target_class,
+                                                                   already_found)):
+            already_found.append(self._get_individual_from_dsearch_result(result))
+            dsearch_result.append(self._get_textual_output_from_dsearch_result(result))
+
+        if len(dsearch_result) == 0:
+            if not quiet:
+                self._search_not_found(self._selected_individual, target_class)
+            return dsearch_result
+
+        if not quiet:
+            print(get_a_selector_from_a_list(dsearch_result))
+        return dsearch_result
+
+    def _get_individual_from_isearch_result(self, result):
+        return self._get_individual_from_dsearch_result(result)
+
+    def _get_textual_output_from_isearch_result(self, result):
+        if type(result) == tuple:
+            next_hop = self._get_textual_output_from_isearch_result(result[2])
+            return f"{result[0]} <- {result[1]} <- {next_hop}"
+
+        return result
+
+    def _isearch(self, *args, quiet=False):
+        if not self._selected_individual:
+            if not quiet:
+                return self._no_selected_individual()
+            return
+
+        if len(args) != 1:
+            if not quiet:
+                return self._dsearch_help_message()
+            return
+
+        if not self._controller:
+            return
+
+        target_class = args[0]
+        if target_class not in self._config.get("SEARCH_OPTIONS"):
+            if not quiet:
+                print(f"{target_class} is not a valid searchable class")
+            return
+
+        already_found = list()
+        isearch_result = list()
+        while (result :=
+                self._controller.deep_inverse_search_class_from_individual(
+                    self._selected_individual,
+                    target_class,
+                    already_found)):
+            already_found.append(self._get_individual_from_isearch_result(result))
+            isearch_result.append(self._get_textual_output_from_isearch_result(result))
+
+        if len(isearch_result) == 0:
+            if not quiet:
+                self._search_not_found(self._selected_individual, target_class)
+            return isearch_result
+
+        if not quiet:
+            print(get_a_selector_from_a_list(isearch_result))
+        return isearch_result
+
     def _search(self, *args):
         if not self._selected_individual:
             return self._no_selected_individual()
 
         if len(args) != 1:
-            return self._search_help_message()
+            return self._dsearch_help_message()
 
         if not self._controller:
             return
@@ -246,14 +386,12 @@ class Cli():
             print(f"{target_class} is not a valid searchable class")
             return
 
-        individual = self._selected_individual
+        dsearch = self._dsearch(*args, quiet=True)
+        isearch = self._isearch(*args, quiet=True)
+        print(get_a_selector_from_a_list(dsearch + isearch))
 
-        while target_class not in list(x.name for x in individual.is_a):
-            break
-
-
-        _tmp = self._controller.get_all_properties_relations_of_an_individual(
-            self._selected_individual)
+        if len(dsearch) + len(isearch) == 0:
+            return self._search_not_found(self._selected_individual, target_class)
 
     def _show(self, *args):
         if not self._selected_individual:
@@ -313,6 +451,8 @@ Inverse properties:
             commands.iproperties_: self._iproperties,
             commands.follow_: self._follow,
             commands.ifollow_: self._ifollow,
+            commands.dsearch_: self._dsearch,
+            commands.isearch_: self._isearch,
             commands.search_: self._search,
             commands.show_: self._show,
             commands.exit_: self._exit,
