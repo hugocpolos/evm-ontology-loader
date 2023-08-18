@@ -12,11 +12,6 @@ import navigator
 OWL_FILE_LOCATION = "./ontologies/"
 OWL_EVM_FILE = "evm.owl"
 
-ontology = None
-sync_reasoner = None
-w = None
-nav = None
-
 
 def get_cli_arguments():
     parser = argparse.ArgumentParser()
@@ -30,13 +25,6 @@ def main():
     logging.info("Starting")
 
     args = get_cli_arguments()
-    global ontology
-    global sync_reasoner
-    global w
-    global nav
-
-    print(args.load_individuals_from_file)
-    print(args.load_properties_from_file)
 
     # load ontology
     ontology = owl.get_ontology(f"{OWL_FILE_LOCATION}/{OWL_EVM_FILE}").load()
