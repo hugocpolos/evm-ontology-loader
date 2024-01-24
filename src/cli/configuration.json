@@ -8,7 +8,7 @@
        "its individuals.",
        "",
        "List of all available commands:",
-       "enter 'help <command> for further help",
+       "enter 'help <command>' for further help",
        "exit",
        "follow",
        "ifollow",
@@ -23,17 +23,19 @@
        "This is an unknown command. Enter 'help' for the command reference"
    ],
    "LIST_HELP_MESSAGE": [
-       "Lists all individuals of the ontology and it ids",
-       "the list command does not accept any argument"
+       "Lists all individuals of the ontology and it respective ids",
+       "The list command does not accept any argument."
    ],
    "SELECT_HELP_MESSAGE": [
        "Selects an individual of the ontology",
-       "usage: select <individual_id>",
-       "the <individual_id> argument must be greater or equal than zero and must be one of the ids listed by the 'list' command"
+       "usage: select <individual_id or individual_name>",
+       "The <individual_id> argument must be greater or equal than zero",
+       "and must be one of the ids listed by the 'list' command",
+       "The <individual_name> must exists."
    ],
    "UNSELECT_HELP_MESSAGE": [
-       "Unselects the pre selected individual",
-       "the unselect command does not accept any argument and will display an error if there is no selected individual"
+       "Unselects an individual",
+       "the unselect command will unselect the current selected individual, and "
    ],
    "PROPERTIES_HELP_MESSAGE": [
        "Lists all properties of the selected individual and it ids",
@@ -56,7 +58,8 @@
        "this command will display an error if there is no selected individual"
    ],
    "SHOW_HELP_MESSAGE": [
-       "Shows informations about the selected individual. If there is no selected individual, this message will be shown"
+       "Show informations about the selected individual. If there is no selected individual, a message informing the user will be displayed.",
+       "The show command will list the individual name, the class of the individual and its properties with it respective ids."
    ],
    "EXIT_HELP_MESSAGE": [
        "Exit the program. It can also be triggered by pressing <Ctrl+d>"
@@ -65,7 +68,10 @@
        "There is no selected individual"
    ],
    "OUT_OF_RANGE": [
-       "'{field}' #{index} is out of range"
+       "{field} #{index} is out of range"
+   ],
+   "NOT_FOUND": [
+       "{field} <{individual}> does not exist"
    ],
    "SEARCH_NOT_FOUND": [
        "relation between the individual '{individual}' and a individual with class '{class_name}' was not found."

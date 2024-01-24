@@ -14,6 +14,9 @@ class OntologyNavigator:
     def all_properties(self):
         return list(self.__onto__.world.properties())
 
+    def get_number_of_individuals(self):
+        return len(list(self.all_individuals))
+
     def dump_ontology(self):
         print("\nindividuals:")
         for i in self.all_individuals:

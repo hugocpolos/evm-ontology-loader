@@ -9,20 +9,23 @@ class commands(Enum):
     list_ = ['list']
     select_ = ['select']
     unselect_ = ['unselect']
-    properties_ = ['properties']
-    iproperties_ = ['iproperties']
+    # properties_ = ['properties']
+    # iproperties_ = ['iproperties']
     follow_ = ['follow']
     ifollow_ = ['ifollow']
-    dsearch_ = ['dsearch']
-    isearch_ = ['isearch']
+    # dsearch_ = ['dsearch']
+    # isearch_ = ['isearch']
     search_ = ['search']
     show_ = ['show']
     exit_ = ['exit']
     nop_ = []
 
 
-def get_a_selector_from_a_list(lst: list) -> str:
-    return '\n'.join(f"[{i}] {item}" for i, item in enumerate(lst))
+def get_a_selector_from_a_list(lst: list, index_selector=True) -> str:
+    if index_selector:
+        return '\n'.join(f"[{i}] {item}" for i, item in enumerate(lst))
+
+    return '\n'.join(f"{item}" for item in lst)
 
 
 class Cli():
@@ -32,6 +35,7 @@ class Cli():
         readline.parse_and_bind("tab: complete")
         readline.set_completer(self._autocompleter)
         self._selected_individual = None
+        self._selected_history = []
         self._controller = controller
         self._set_ps1()
         self._config = configuration if configuration else self._load_default_configuration()
@@ -86,12 +90,12 @@ class Cli():
             commands.list_: self._list_help_message,
             commands.select_: self._select_help_message,
             commands.unselect_: self._unselect_help_message,
-            commands.properties_: self._properties_help_message,
-            commands.iproperties_: self._iproperties_help_message,
+            # commands.properties_: self._properties_help_message,
+            # commands.iproperties_: self._iproperties_help_message,
             commands.follow_: self._follow_help_message,
             commands.ifollow_: self._ifollow_help_message,
-            commands.dsearch_: self._dsearch_help_message,
-            commands.isearch_: self._isearch_help_message,
+            # commands.dsearch_: self._dsearch_help_message,
+            # commands.isearch_: self._isearch_help_message,
             commands.search_: self._search_help_message,
             commands.show_: self._show_help_message,
             commands.exit_: self._exit_help_message,
@@ -143,9 +147,19 @@ class Cli():
     def _out_of_range(self, field, index):
         self._print_message_from_cli_config('OUT_OF_RANGE', field=field, index=index)
 
+    def _not_found(self, field, *args):
+        self._print_message_from_cli_config('NOT_FOUND', field=field, individual=' '.join(str(x) for x
+                                                                                          in args))
+
     def _search_not_found(self, individual, class_name):
         self._print_message_from_cli_config('SEARCH_NOT_FOUND', individual=individual,
                                             class_name=class_name)
+
+    def _update_selected_individual(self, individual):
+        self._selected_individual = individual
+        if self._selected_individual:
+            self._selected_history.append(individual)
+        self._set_ps1(self._selected_individual)
 
     def _list(self, *args):
         res = ""
@@ -170,11 +184,10 @@ class Cli():
 
         _s = ' '.join([*args])
         if (ind := self._controller.get_individual_by_name(name=_s)):
-            self._selected_individual = ind
-            self._set_ps1(self._selected_individual)
+            self._update_selected_individual(ind)
             return
 
-        return self._out_of_range('individual', *args)
+        return self._not_found('individual', *args)
 
     def _select_by_index(self, index_s):
         try:
@@ -184,14 +197,18 @@ class Cli():
             return self._select_help_message()
 
         try:
-            self._selected_individual = self._controller.get_individual_by_index(index)
+            self._update_selected_individual(self._controller.get_individual_by_index(index))
         except IndexError:
             return self._out_of_range('individual', index)
         self._set_ps1(self._selected_individual)
 
     def _unselect(self, *args):
-        self._selected_individual = None
-        self._set_ps1(self._selected_individual)
+        if len(self._selected_history) <= 1:
+            self._selected_history = []
+            return self._update_selected_individual(None)
+        self._selected_history.pop()
+        _last_individual = self._selected_history.pop()
+        self._update_selected_individual(_last_individual)
 
     def _properties(self, *args):
         if not self._selected_individual:
@@ -241,8 +258,7 @@ class Cli():
                 for relation in _tmp[prop]:
                     res.append(relation[1])
         try:
-            self._selected_individual = res[index]
-            self._set_ps1(self._selected_individual)
+            self._update_selected_individual(res[index])
         except IndexError:
             self._out_of_range('property', index)
 
@@ -266,8 +282,7 @@ class Cli():
             for relation in _tmp:
                 res.append(relation[0])
         try:
-            self._selected_individual = res[index]
-            self._set_ps1(self._selected_individual)
+            self._update_selected_individual(res[index])
         except IndexError:
             self._out_of_range('inverse property', index)
 
@@ -388,7 +403,7 @@ class Cli():
 
         dsearch = self._dsearch(*args, quiet=True)
         isearch = self._isearch(*args, quiet=True)
-        print(get_a_selector_from_a_list(dsearch + isearch))
+        print(get_a_selector_from_a_list(dsearch + isearch, index_selector=False))
 
         if len(dsearch) + len(isearch) == 0:
             return self._search_not_found(self._selected_individual, target_class)
@@ -414,16 +429,19 @@ Inverse properties:
         if self._controller:
             _tmp = self._controller.get_all_properties_relations_of_an_individual(
                 self._selected_individual)
+            i = 0
             for prop in _tmp:
                 for relation in _tmp[prop]:
-                    properties.append(f"{relation[0]} -> {prop} -> {relation[1]}")
+                    properties.append(f"[{i}] {relation[0]} -> {prop} -> {relation[1]}")
+                    i += 1
 
         iproperties = []
         if self._controller:
             _tmp = self._controller.get_all_inverse_properties_of_an_individual(
                 self._selected_individual)
-            for relation in _tmp:
-                iproperties.append(f"{relation[0]} -> {relation[1]} -> {self._selected_individual}")
+            for i, relation in enumerate(_tmp):
+                iproperties.append(
+                    f"[{i}] {relation[0]} -> {relation[1]} -> {self._selected_individual}")
 
         print(show_template.format(
             individual_name=self._selected_individual.name,
@@ -447,12 +465,12 @@ Inverse properties:
             commands.list_: self._list,
             commands.select_: self._select,
             commands.unselect_: self._unselect,
-            commands.properties_: self._properties,
-            commands.iproperties_: self._iproperties,
+            # commands.properties_: self._properties,
+            # commands.iproperties_: self._iproperties,
             commands.follow_: self._follow,
             commands.ifollow_: self._ifollow,
-            commands.dsearch_: self._dsearch,
-            commands.isearch_: self._isearch,
+            # commands.dsearch_: self._dsearch,
+            # commands.isearch_: self._isearch,
             commands.search_: self._search,
             commands.show_: self._show,
             commands.exit_: self._exit,
@@ -464,6 +482,7 @@ Inverse properties:
         _args = None
         print()
         self._print_message_from_cli_config('WELCOME_MESSAGE')
+        _args = []
         while _command != commands.exit_:
             try:
                 raw_input = list(filter(('').__ne__, input(self._ps1).split(' ')))
