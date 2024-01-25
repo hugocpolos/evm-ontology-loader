@@ -53,7 +53,7 @@ class OntologyNavigator:
         return possible_classes
 
     def get_individuals_of_a_class(self, cls):
-        individuals = list(x for x in self.all_individuals if cls in x.is_instance_of)
+        individuals = list(x for x in self.all_individuals if cls in x.is_a)
         return individuals
 
     def get_individuals_of_a_class_by_class_name(self, classname, strict=False):

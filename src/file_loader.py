@@ -27,10 +27,15 @@ class _FileLoader(ABC):
                 next(reader)
 
             for i, line in enumerate(reader):
+                if self._is_commentary(line):
+                    continue
                 try:
                     self.load_csv_line(line)
                 except AssertionError as err:
                     raise InvalidOntologyCSVFile(f"{file}:{i+1}. {err}")
+
+    def _is_commentary(self, csv_line: list):
+        return csv_line[0].startswith('/*') and csv_line[-1].endswith('*/')
 
     @abstractmethod
     def load_csv_line(self, line):

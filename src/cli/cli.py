@@ -9,12 +9,8 @@ class commands(Enum):
     list_ = ['list']
     select_ = ['select']
     unselect_ = ['unselect']
-    # properties_ = ['properties']
-    # iproperties_ = ['iproperties']
     follow_ = ['follow']
     ifollow_ = ['ifollow']
-    # dsearch_ = ['dsearch']
-    # isearch_ = ['isearch']
     search_ = ['search']
     show_ = ['show']
     exit_ = ['exit']
@@ -40,12 +36,31 @@ class Cli():
         self._set_ps1()
         self._config = configuration if configuration else self._load_default_configuration()
         self._select_autocomplete_list = self._fill_select_autocomplete_list()
+        self._search_autocomplete_list = self._fill_search_autocomplete_list()
+
+    def _fill_search_autocomplete_list(self):
+        if not self._controller:
+            return list()
+
+        return_list = self._controller.get_all_individuals()
+        return_list = [y.name for x in return_list for y in x.is_a]
+        return return_list
 
     def _fill_select_autocomplete_list(self):
         if not self._controller:
             return list()
+
         return_list = self._controller.get_all_individuals()
         return [x.name for x in return_list]
+
+    def _get_autocomplete(self, text, suggestions):
+        return list(x for x in suggestions if x.startswith(text))
+
+    def _get_search_autocomplete(self, text):
+        return self._get_autocomplete(text, self._search_autocomplete_list)
+
+    def _get_select_autocomplete(self, text):
+        return self._get_autocomplete(text, self._select_autocomplete_list)
 
     def _autocompleter(self, text, state):
         options = list(x for x in itertools.chain.from_iterable(x.value for x in commands) if
@@ -53,10 +68,10 @@ class Cli():
 
         buffer = readline.get_line_buffer()
 
-        if buffer.startswith('search') or buffer.startswith('isearch') or buffer.startswith('dsearch'):
-            options = list(x for x in self._config.get("SEARCH_OPTIONS") if x.startswith(text))
+        if buffer.startswith('search'):
+            options = self._get_search_autocomplete(text)
         elif buffer.startswith('select'):
-            options = list(x for x in self._select_autocomplete_list if x.startswith(text))
+            options = self._get_select_autocomplete(text)
 
         if state < len(options):
             return options[state]
@@ -90,12 +105,8 @@ class Cli():
             commands.list_: self._list_help_message,
             commands.select_: self._select_help_message,
             commands.unselect_: self._unselect_help_message,
-            # commands.properties_: self._properties_help_message,
-            # commands.iproperties_: self._iproperties_help_message,
             commands.follow_: self._follow_help_message,
             commands.ifollow_: self._ifollow_help_message,
-            # commands.dsearch_: self._dsearch_help_message,
-            # commands.isearch_: self._isearch_help_message,
             commands.search_: self._search_help_message,
             commands.show_: self._show_help_message,
             commands.exit_: self._exit_help_message,
@@ -123,12 +134,6 @@ class Cli():
     def _ifollow_help_message(self):
         self._print_message_from_cli_config('IFOLLOW_HELP_MESSAGE')
 
-    def _dsearch_help_message(self):
-        self._print_message_from_cli_config('DSEARCH_HELP_MESSAGE')
-
-    def _isearch_help_message(self):
-        self._print_message_from_cli_config('ISEARCH_HELP_MESSAGE')
-
     def _search_help_message(self):
         self._print_message_from_cli_config('SEARCH_HELP_MESSAGE')
 
@@ -143,6 +148,9 @@ class Cli():
 
     def _no_selected_individual(self, *args):
         self._print_message_from_cli_config('NO_SELECTED_INDIVIDUAL')
+
+    def _no_individual_of_class(self, classname):
+        self._print_message_from_cli_config('NO_INDIVIDUAL_OF_CLASS', classname=classname)
 
     def _out_of_range(self, field, index):
         self._print_message_from_cli_config('OUT_OF_RANGE', field=field, index=index)
@@ -167,7 +175,7 @@ class Cli():
 
         if self._controller:
             res = get_a_selector_from_a_list(list_individual_format.format(class_name=' / '.join(
-                z.name for z in x.is_instance_of),
+                z.name for z in x.is_a),
                 individual_name=x) for x in self._controller.get_all_individuals())
         print("[#id]\t(Class) individual_name")
         print(res)
@@ -248,7 +256,7 @@ class Cli():
             index = int(args[0])
             assert index >= 0
         except (ValueError, AssertionError):
-            return self._select_help_message()
+            return self._follow_help_message()
 
         res = []
         if self._controller:
@@ -273,7 +281,7 @@ class Cli():
             index = int(args[0])
             assert index >= 0
         except (ValueError, AssertionError):
-            return self._select_help_message()
+            return self._ifollow_help_message()
 
         res = []
         if self._controller:
@@ -300,25 +308,7 @@ class Cli():
         return result
 
     def _dsearch(self, *args, quiet=False):
-        if not self._selected_individual:
-            if not quiet:
-                return self._no_selected_individual()
-            return
-
-        if len(args) != 1:
-            if not quiet:
-                return self._dsearch_help_message()
-            return
-
-        if not self._controller:
-            return
-
         target_class = args[0]
-        if target_class not in self._config.get("SEARCH_OPTIONS"):
-            if not quiet:
-                print(f"{target_class} is not a valid searchable class")
-            return
-
         already_found = list()
         dsearch_result = list()
         while (result :=
@@ -348,25 +338,7 @@ class Cli():
         return result
 
     def _isearch(self, *args, quiet=False):
-        if not self._selected_individual:
-            if not quiet:
-                return self._no_selected_individual()
-            return
-
-        if len(args) != 1:
-            if not quiet:
-                return self._dsearch_help_message()
-            return
-
-        if not self._controller:
-            return
-
         target_class = args[0]
-        if target_class not in self._config.get("SEARCH_OPTIONS"):
-            if not quiet:
-                print(f"{target_class} is not a valid searchable class")
-            return
-
         already_found = list()
         isearch_result = list()
         while (result :=
@@ -391,29 +363,29 @@ class Cli():
             return self._no_selected_individual()
 
         if len(args) != 1:
-            return self._dsearch_help_message()
+            return self._search_help_message()
 
         if not self._controller:
             return
 
         target_class = args[0]
-        if target_class not in self._config.get("SEARCH_OPTIONS"):
-            print(f"{target_class} is not a valid searchable class")
-            return
+        if target_class not in self._search_autocomplete_list:
+            return self._no_individual_of_class(target_class)
 
         dsearch = self._dsearch(*args, quiet=True)
         isearch = self._isearch(*args, quiet=True)
-        print(get_a_selector_from_a_list(dsearch + isearch, index_selector=False))
+        search_result = [x for x in dsearch + isearch if isinstance(x, str)]
 
-        if len(dsearch) + len(isearch) == 0:
+        if len(search_result) == 0:
             return self._search_not_found(self._selected_individual, target_class)
+
+        print(get_a_selector_from_a_list(search_result, index_selector=False))
 
     def _show(self, *args):
         if not self._selected_individual:
             return self._no_selected_individual()
 
-        show_template = \
-            """
+        show_template = """
 Name: {individual_name}
 Instance of: {instance_of}
 
@@ -445,7 +417,7 @@ Inverse properties:
 
         print(show_template.format(
             individual_name=self._selected_individual.name,
-            instance_of=', '.join(z.name for z in self._selected_individual.is_instance_of),
+            instance_of=', '.join(z.name for z in self._selected_individual.is_a),
             properties='\n'.join(properties),
             inverse_properties='\n'.join(iproperties)
         ))
@@ -465,12 +437,8 @@ Inverse properties:
             commands.list_: self._list,
             commands.select_: self._select,
             commands.unselect_: self._unselect,
-            # commands.properties_: self._properties,
-            # commands.iproperties_: self._iproperties,
             commands.follow_: self._follow,
             commands.ifollow_: self._ifollow,
-            # commands.dsearch_: self._dsearch,
-            # commands.isearch_: self._isearch,
             commands.search_: self._search,
             commands.show_: self._show,
             commands.exit_: self._exit,

@@ -1,0 +1,4 @@
+PROPERTY_NAME,SOURCE_NAME,TARGET_NAME
+evmelicits,"hit the wall","robot A responsibility ascription"
+evmascribes,"robot A responsibility ascription","robot A"
+evmdetects,"monitor 1","hit the wall"

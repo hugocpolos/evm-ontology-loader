@@ -9,15 +9,14 @@
        "",
        "List of all available commands:",
        "enter 'help <command>' for further help",
-       "exit",
+       "list",
+       "select",
+       "unselect",
        "follow",
        "ifollow",
-       "iproperties",
-       "list",
-       "properties",
-       "select",
+       "search",
        "show",
-       "unselect"
+       "exit"
    ],
    "UNKNOWN_COMMAND_MESSAGE": [
        "This is an unknown command. Enter 'help' for the command reference"
@@ -34,28 +33,25 @@
        "The <individual_name> must exists."
    ],
    "UNSELECT_HELP_MESSAGE": [
-       "Unselects an individual",
-       "the unselect command will unselect the current selected individual, and "
-   ],
-   "PROPERTIES_HELP_MESSAGE": [
-       "Lists all properties of the selected individual and it ids",
-       "this command does not accept any argument, and will display an error if there is no selected individual"
-   ],
-   "IPROPERTIES_HELP_MESSAGE": [
-       "Lists all inverse properties of the selected individual and it ids",
-       "this command does not accept any argument, and will display an error if there is no selected individual"
+       "Unselects an individual.",
+       "The unselect command will unselect the current selected individual, and selected the ",
+       "previous selected individual, going backwards on the selected individuals stack.",
+       "The unselect command does not accept any argument."
    ],
    "FOLLOW_HELP_MESSAGE": [
-       "Follow a property, changing the current selected individual to the target of this property",
+       "Follow a direct property, changing the current selected individual to the target of this property.",
        "usage: follow <property_id>",
-       "the <property_id> argument must be greater or equal than zero and must be one of the ids listed by the 'properties' command",
-       "this command will display an error if there is no selected individual"
+       "The <property_id> argument must be greater or equal than zero and must be one of the ids listed by the 'show' command.",
+       "This command will display an error if there is no selected individual."
    ],
    "IFOLLOW_HELP_MESSAGE": [
-       "Follow an inverse property, changing the current selected individual to the source of this inverse property",
+       "Follow an inverse property, changing the current selected individual to the source of this inverse property.",
        "usage: ifollow <iproperty_id>",
-       "the <iproperty_id> argument must be greater or equal than zero and must be one of the ids listed by the 'iproperties' command",
-       "this command will display an error if there is no selected individual"
+       "The <iproperty_id> argument must be greater or equal than zero and must be one of the ids listed by the 'show' command.",
+       "This command will display an error if there is no selected individual."
+   ],
+   "SEARCH_HELP_MESSAGE": [
+       "TO DO"
    ],
    "SHOW_HELP_MESSAGE": [
        "Show informations about the selected individual. If there is no selected individual, a message informing the user will be displayed.",
@@ -74,96 +70,9 @@
        "{field} <{individual}> does not exist"
    ],
    "SEARCH_NOT_FOUND": [
-       "relation between the individual '{individual}' and a individual with class '{class_name}' was not found."
+       "Not found"
    ],
-   "SEARCH_OPTIONS":
-   [
-    "evmEventCausation",
-    "evmResponsibilityAscription",
-    "evmAscriptionJustification",
-    "evmGroundsForAscription",
-    "evmAgentAccountability",
-    "evmNormViolationIncident",
-    "evmEthicalBehaviorMonitor",
-    "evmNormViolation",
-    "evmSocioTechnologyGovernance",
-    "evmLiabilitySanction",
-    "evmLegalResponsibilityAscription",
-    "evmgovernance",
-    "evmresponsibility",
-    "evmAccountablePerson",
-    "evmDistributedResponsibility",
-    "evmEnumDataTypes",
-    "evmEthicalResponsibilityAscription",
-    "evmlegal",
-    "nepAgent",
-    "nepAgentAction",
-    "nepGovernment",
-    "nepAgentRole",
-    "nepNorm",
-    "nepSituation",
-    "nepRobot",
-    "nepTeam",
-    "nepPlanAction",
-    "nepEthicalPrinciple",
-    "nepDerogation",
-    "nepAgentPlan",
-    "nepnorm",
-    "nepEthicalDilemma",
-    "nepEthicalTheory",
-    "nepSituationPlanRepertoire",
-    "nepTaskAssignment",
-    "nepSocialCollection",
-    "nepEnvironment",
-    "nepAnswer",
-    "nepQuery",
-    "nepActionRationale",
-    "nepDilemmaMitigationPrinciple",
-    "nepnorm",
-    "nepteam",
-    "nepCommunity",
-    "nepCompany",
-    "nepConsequentialistNorm",
-    "nepDeontologicalNorm",
-    "nepDepartment",
-    "nepEnumDataTypes",
-    "nepExplanation",
-    "nepObligation",
-    "nepOrganization",
-    "nepPermission",
-    "nepProhibition",
-    "nepVirtuousNorm",
-    "nepautonomous",
-    "nepdilemma",
-    "nepethical",
-    "nepethical",
-    "tloAgentCommunication",
-    "tloMethod",
-    "tloAgent",
-    "tloProcess",
-    "tloPlan",
-    "tloInformationArtifact",
-    "tloRole",
-    "tloEnumDataTypes",
-    "tloContinuant",
-    "tloSituation",
-    "tloCollective",
-    "tloPhysical",
-    "tloAbstract",
-    "tloActionEvent",
-    "tloEntity",
-    "tloDescription",
-    "tloEvent",
-    "tloTime",
-    "tloevmObject",
-    "tloProperty",
-    "tloSpatioTemporalPlace",
-    "tloEnvironmentalEvent",
-    "tloAttribute",
-    "tloManner",
-    "tloOccurrent",
-    "tloInteractionProcess",
-    "tloSchema",
-    "tloSocialInteractionProcess"
+   "NO_INDIVIDUAL_OF_CLASS": [
+       "There are no individual of the class '{classname}' on this scenario"
    ]
 }
