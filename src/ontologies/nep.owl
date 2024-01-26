@@ -1076,7 +1076,7 @@
     <owl:Class rdf:about="file://nepnorm_category">
         <rdfs:subClassOf rdf:resource="file://nepEnumDataTypes"/>
         <rdfs:comment>Norm Categories</rdfs:comment>
-        <rdfs:comment>{ legal_norm, ethial_norm }</rdfs:comment>
+        <rdfs:comment>{ legal_norm, ethical_norm }</rdfs:comment>
     </owl:Class>
     
 
@@ -2082,7 +2082,7 @@
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="file://nepstate"/>
                         <swrl:argument1 rdf:resource="urn:swrl:var#n"/>
-                        <swrl:argument2 rdf:resource="file://nepsuspended"/>
+                        <swrl:argument2 rdf:resource="file:///nepsuspended"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -2109,7 +2109,7 @@
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                                 <swrl:propertyPredicate rdf:resource="file://nepstate"/>
                                 <swrl:argument1 rdf:resource="urn:swrl:var#n"/>
-                                <swrl:argument2 rdf:resource="file://nepsuspended"/>
+                                <swrl:argument2 rdf:resource="file:///nepsuspended"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest>
@@ -2162,7 +2162,7 @@
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                         <swrl:propertyPredicate rdf:resource="file://nepstate"/>
                         <swrl:argument1 rdf:resource="urn:swrl:var#n"/>
-                        <swrl:argument2 rdf:resource="file://nepactivated"/>
+                        <swrl:argument2 rdf:resource="file:///nepactivated"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>

@@ -835,7 +835,7 @@
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                                 <swrl:propertyPredicate rdf:resource="file://nepteam_type"/>
                                 <swrl:argument1 rdf:resource="urn:swrl:var#t"/>
-                                <swrl:argument2 rdf:resource="file://nephuman_directed"/>
+                                <swrl:argument2 rdf:resource="file:///nephuman_directed"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest>
@@ -898,7 +898,7 @@
                                                                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                                                                                 <swrl:propertyPredicate rdf:resource="file://evmscope"/>
                                                                                 <swrl:argument1 rdf:resource="urn:swrl:var#hra"/>
-                                                                                <swrl:argument2 rdf:resource="file://evmmulti_agents"/>
+                                                                                <swrl:argument2 rdf:resource="file:///evmmulti_agents"/>
                                                                             </rdf:Description>
                                                                         </rdf:first>
                                                                         <rdf:rest>
@@ -962,7 +962,7 @@
                                                                                                                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                                                                                                                                 <swrl:propertyPredicate rdf:resource="file://evmmaturity"/>
                                                                                                                                 <swrl:argument1 rdf:resource="urn:swrl:var#mg"/>
-                                                                                                                                <swrl:argument2 rdf:resource="file://evmevolving_capacity"/>
+                                                                                                                                <swrl:argument2 rdf:resource="file:///evmevolving_capacity"/>
                                                                                                                             </rdf:Description>
                                                                                                                         </rdf:first>
                                                                                                                         <rdf:rest>
@@ -1198,6 +1198,7 @@
             </rdf:Description>
         </swrl:head>
     </rdf:Description>
+    <!-- ******************************** -->
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
         <swrl:body>
@@ -1290,7 +1291,7 @@
                                                                                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                                                                                         <swrl:propertyPredicate rdf:resource="file://nepteam_type"/>
                                                                                         <swrl:argument1 rdf:resource="urn:swrl:var#t"/>
-                                                                                        <swrl:argument2 rdf:resource="file://nephuman_directed"/>
+                                                                                        <swrl:argument2 rdf:resource="file:///nephuman_directed"/>
                                                                                     </rdf:Description>
                                                                                 </rdf:first>
                                                                                 <rdf:rest>
@@ -1846,7 +1847,7 @@
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                                 <swrl:propertyPredicate rdf:resource="file://evmscope"/>
                                 <swrl:argument1 rdf:resource="urn:swrl:var#ra"/>
-                                <swrl:argument2 rdf:resource="file://evmsingle_agent"/>
+                                <swrl:argument2 rdf:resource="file:///evmsingle_agent"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest>
@@ -1921,7 +1922,7 @@
                                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
                                                 <swrl:propertyPredicate rdf:resource="file://evmmaturity"/>
                                                 <swrl:argument1 rdf:resource="urn:swrl:var#mg"/>
-                                                <swrl:argument2 rdf:resource="file://evmno_capacity"/>
+                                                <swrl:argument2 rdf:resource="file:///evmno_capacity"/>
                                             </rdf:Description>
                                         </rdf:first>
                                         <rdf:rest>
