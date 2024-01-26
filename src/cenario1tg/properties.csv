@@ -1,0 +1,7 @@
+PROPERTY_NAME,SOURCE_NAME,TARGET_NAME
+/* nepis_implemented_by,pa,aa */
+/* nepexecutes,a,pa */
+/* evmobserves,m,a */
+/* evmdetects,m,nv */
+/* evmcause,ec,aa */
+/* evmeffect,ec,nv */

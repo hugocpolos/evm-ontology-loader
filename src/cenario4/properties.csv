@@ -1,4 +1,7 @@
 PROPERTY_NAME,SOURCE_NAME,TARGET_NAME
-evmelicits,"hit the wall","robot A responsibility ascription"
-evmascribes,"robot A responsibility ascription","robot A"
-evmdetects,"monitor 1","hit the wall"
+evmelicits,"hit the wall","robot1 responsibility ascription"
+evmascribes,"robot1 responsibility ascription","robot1"
+evmdetects,"monitor","hit the wall"
+evmelicits,"hit another robot","robot2 responsibility ascription"
+evmascribes,"robot2 responsibility ascription","robot2"
+evmdetects,"monitor","hit another robot"

@@ -1,5 +1,8 @@
 CLASS,INDIVIDUAL_NAME
-nepRobot,"robot A"
+nepRobot,"robot1"
+nepRobot,"robot2"
+evmResponsibilityAscription,"robot1 responsibility ascription"
+evmResponsibilityAscription,"robot2 responsibility ascription"
 evmNormViolation,"hit the wall"
-evmEthicalBehaviorMonitor,"monitor 1"
-evmResponsibilityAscription,"robot A responsibility ascription"
+evmNormViolation,"hit another robot"
+evmEthicalBehaviorMonitor,"monitor"
