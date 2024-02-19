@@ -38,13 +38,16 @@ class Cli():
         self._select_autocomplete_list = self._fill_select_autocomplete_list()
         self._search_autocomplete_list = self._fill_search_autocomplete_list()
 
-    def _fill_search_autocomplete_list(self):
+    def _fill_search_autocomplete_list(self, include_all=True):
         if not self._controller:
             return list()
 
         return_list = self._controller.get_all_individuals()
         return_list = [y.name for x in return_list for y in x.is_a]
-        return return_list
+        if not include_all:
+            return set(return_list)
+
+        return set(['all'] + return_list) if len(return_list) > 0 else set(return_list)
 
     def _fill_select_autocomplete_list(self):
         if not self._controller:
@@ -358,7 +361,7 @@ class Cli():
             print(get_a_selector_from_a_list(isearch_result))
         return isearch_result
 
-    def _search(self, *args):
+    def _search_wrapper(self, *args):
         if not self._selected_individual:
             return self._no_selected_individual()
 
@@ -369,9 +372,15 @@ class Cli():
             return
 
         target_class = args[0]
+        if target_class == 'all':
+            return self._search_all()
+
         if target_class not in self._search_autocomplete_list:
             return self._no_individual_of_class(target_class)
+        return self._search(*args)
 
+    def _search(self, *args):
+        target_class = args[0]
         dsearch = self._dsearch(*args, quiet=True)
         isearch = self._isearch(*args, quiet=True)
         search_result = [x for x in dsearch + isearch if isinstance(x, str)]
@@ -379,7 +388,14 @@ class Cli():
         if len(search_result) == 0:
             return self._search_not_found(self._selected_individual, target_class)
 
+        search_result = ['* ' + x for x in search_result]
         print(get_a_selector_from_a_list(search_result, index_selector=False))
+
+    def _search_all(self):
+        for c in self._fill_search_autocomplete_list(include_all=False):
+            print()
+            print(c)
+            self._search(c)
 
     def _show(self, *args):
         if not self._selected_individual:
@@ -439,7 +455,7 @@ Inverse properties:
             commands.unselect_: self._unselect,
             commands.follow_: self._follow,
             commands.ifollow_: self._ifollow,
-            commands.search_: self._search,
+            commands.search_: self._search_wrapper,
             commands.show_: self._show,
             commands.exit_: self._exit,
             commands.nop_: self._unknown_command,

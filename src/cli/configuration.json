@@ -51,7 +51,10 @@
        "This command will display an error if there is no selected individual."
    ],
    "SEARCH_HELP_MESSAGE": [
-       "TO DO"
+       "Search through the direct and inverse properties of a selected individual for",
+       "an individual of a given class.",
+       "usage: search <class_name>",
+       "This command will display an error message if there is no selected individual"
    ],
    "SHOW_HELP_MESSAGE": [
        "Show informations about the selected individual. If there is no selected individual, a message informing the user will be displayed.",

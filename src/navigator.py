@@ -14,6 +14,10 @@ class OntologyNavigator:
     def all_properties(self):
         return list(self.__onto__.world.properties())
 
+    @property
+    def all_rules(self):
+        return list(self.__onto__.world.rules())
+
     def get_number_of_individuals(self):
         return len(list(self.all_individuals))
 

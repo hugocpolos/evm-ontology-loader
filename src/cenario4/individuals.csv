@@ -1,4 +1,3 @@
-CLASS,INDIVIDUAL_NAME
 nepRobot,"robot1"
 nepRobot,"robot2"
 evmResponsibilityAscription,"robot1 responsibility ascription"
@@ -6,3 +5,11 @@ evmResponsibilityAscription,"robot2 responsibility ascription"
 evmNormViolation,"hit the wall"
 evmNormViolation,"hit another robot"
 evmEthicalBehaviorMonitor,"monitor"
+
+
+evmelicits,"hit the wall","robot1 responsibility ascription"
+evmascribes,"robot1 responsibility ascription","robot1"
+evmdetects,"monitor","hit the wall"
+evmelicits,"hit another robot","robot2 responsibility ascription"
+evmascribes,"robot2 responsibility ascription","robot2"
+evmdetects,"monitor","hit another robot"

@@ -5,7 +5,7 @@ import argparse
 
 from my_logging import logging
 from factory import Factory
-from file_loader import IndividualsLoader, PropertiesLoader, InvalidOntologyCSVFile
+from file_loader import IndividualsLoader, InvalidOntologyCSVFile
 from cli.cli import Cli
 
 import navigator
@@ -29,14 +29,17 @@ def get_cli_arguments():
         navigate and visualize the ontology entities by themself.''',
         epilog='The evm_loader app was developed by Hugo Constantinopolos.\
         hugo.constantinopolos@inf.ufrgs.br')
-    parser.add_argument('-i', '--individual_files', action='append', nargs='+', help='''
+    parser.add_argument('-f', '--input-file', action='append', nargs='+', help='''
     CSV files containing ontology individuals to be loaded.
-    ''')
-    parser.add_argument('-p', '--property_files', action='append', nargs='+', help='''
-    CSV files containing ontology individuals properties to be loaded.
     ''')
     parser.add_argument('--cli', action='store_true',
                         help="start the command line interface app after loading the ontology")
+    parser.add_argument('-v', '--verbose', action='count', default=0,
+                        help='display reasoning log messages')
+    parser.add_argument('-l', '--load-only', action='store_true', help='''do nothing after loading
+        the individuals. Specially useful when combined with -v to debug the ontology loading and
+        reasoning.''')
+    parser.add_argument('-r', '--rules', action='store_true')
     return parser.parse_args()
 
 
@@ -52,17 +55,13 @@ def main():
     logging.info(f"Loading the ontology from the {OWL_FILE_LOCATION}{OWL_EVM_FILE} file")
     ontology = owlready2.get_ontology(f"{OWL_FILE_LOCATION}/{OWL_EVM_FILE}").load()
     logging.info("The EVM ontology has been successfully loaded")
-
-    # clean up the ontology
-    for individual in ontology.world.individuals():
-        owlready2.destroy_entity(individual)
+    owlready2.sync_reasoner_hermit(infer_property_values=True, debug=False)
 
     with ontology:
         # Initialize the instance factory
         factory = Factory(ontology)
         try:
-            IndividualsLoader(factory, args.individual_files)
-            PropertiesLoader(ontology, args.property_files)
+            loader = IndividualsLoader(ontology, factory, args.input_file)
         except InvalidOntologyCSVFile as err:
             logging.error(err)
             return finish()
@@ -71,10 +70,24 @@ def main():
 
     # Run the HermiT reasoner if there is individuals
     try:
-        owlready2.sync_reasoner_hermit(debug=False)
+        owlready2.sync_reasoner_hermit(infer_property_values=True, debug=args.verbose)
         logging.info("HermiT reasoner has successfully run")
-    except Exception:
-        logging.warning("HermiT reasoner did not run due to lack of minimum data.")
+    except Exception as err:
+        if args.verbose:
+            logging.error(err)
+        else:
+            logging.warning("HermiT reasoner did not run")
+
+    # clean up the ontology
+    for individual in ontology.world.individuals():
+        if individual not in loader.needed_individuals:
+            owlready2.destroy_entity(individual)
+
+    if args.rules:
+        show_functions.show_all_rules(nav)
+
+    if args.load_only:
+        return finish()
 
     if args.cli:
         cli = Cli(controller=nav)

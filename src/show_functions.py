@@ -31,3 +31,20 @@ Inverse properties:
         properties='\n'.join(properties),
         inverse_properties='\n'.join(iproperties)
     ))
+
+
+def show_all_rules(controller):
+    for r in controller.all_rules:
+        # print(r.head)
+        # print()
+        try:
+            print(r)
+        except:
+            for i in r.body:
+                try:
+                    print(i)
+                except:
+                    print(i.generate_default_name())
+            print(r.head)
+
+        print()
